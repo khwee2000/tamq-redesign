@@ -572,7 +572,7 @@ ul,ol{list-style:none}
 @media (max-width:720px){.wf{padding:96px 0;margin-top:80px}}
 
 /* ---------- research report covers ---------- */
-.rr{position:relative;height:300px;padding:48px 20px 18px;border-radius:3px 6px 6px 3px;background:linear-gradient(160deg,#fff 0%,#fbfcfe 60%,color-mix(in srgb,var(--rc) 5%,#fff) 100%);display:flex;flex-direction:column;
+.rr{position:relative;height:340px;padding:46px 18px 14px;border-radius:3px 6px 6px 3px;background:linear-gradient(160deg,#fff 0%,#fbfcfe 60%,color-mix(in srgb,var(--rc) 5%,#fff) 100%);display:flex;flex-direction:column;
   box-shadow:2px 0 0 #fff,3px 1px 0 #e6e8ee,5px 2px 0 #fff,6px 3px 0 #dfe2e9,8px 4px 0 #fff,9px 5px 0 #d8dce4,0 20px 30px -16px rgba(15,20,48,.32),0 2px 6px rgba(15,20,48,.06);
   transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
 .rr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(90deg,rgba(15,20,48,.07),transparent)}
@@ -738,6 +738,35 @@ ul,ol{list-style:none}
 .sw-card.on p{display:none}
 .sw-desc{margin-top:22px;min-height:52px;font-size:15px;color:var(--ink-2);line-height:1.7;max-width:340px}
 .sw-desc b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
+
+/* ---------- report cover v2 (no English, trust details) ---------- */
+.rr-top{align-items:center;padding-bottom:8px;border-bottom:1px solid #e3e6ee;font-size:10px;letter-spacing:0;font-weight:500;color:var(--ink-3)}
+.rr-doc{font-size:11px;font-weight:800;color:var(--ink);letter-spacing:.18em}
+.rr h4{margin-top:14px;font-size:17px}
+.rr-bar{margin-top:10px}
+.rr-art{margin:6px -2px 6px}
+.rr-tbl{display:grid;grid-template-columns:auto 1fr;border-top:1px solid #e3e6ee;font-size:10.5px;line-height:1.35}
+.rr-tbl dt,.rr-tbl dd{padding:4px 0;border-bottom:1px solid #eef0f4}
+.rr-tbl dt{color:var(--ink-3);padding-right:10px;white-space:nowrap}
+.rr-tbl dd{font-weight:600;color:var(--ink);text-align:right}
+.rr-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.rr-ok{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:700;color:var(--rc)}
+.rr-ok::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--rc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8.5l2.5 2.5 5.5-6'/%3E%3C/svg%3E") center/8px no-repeat}
+.rr-foot img{width:18px;height:18px;opacity:.9}
+.rr-bot{display:none}
+@media (max-width:720px){.rr{height:320px}}
+
+/* ---------- final CTA: readable ---------- */
+.fin{background:linear-gradient(180deg,#fff 0%,#fff 8%,var(--brand) 8%,var(--brand-deep) 100%)!important;margin-top:120px;padding:150px 0 130px}
+.fin{background:linear-gradient(160deg,#2b56c9 0%,var(--brand) 45%,var(--brand-deep) 100%)!important}
+.fin h2{color:#fff!important}
+.fin p{color:rgba(255,255,255,.82)!important}
+
+/* ---------- footer: full width + kakao ---------- */
+.ft{margin:0!important;border-radius:0!important}
+.ft .wrap{max-width:none;padding:0 clamp(24px,5vw,72px)}
+.ft-btns a.kakao{background:#FEE500;border-color:#FEE500;color:#191919}
+.ft-btns a.kakao:hover{background:#f5dc00;border-color:#f5dc00}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
@@ -1046,6 +1075,7 @@ ul,ol{list-style:none}
       <div class="ft-btns">
         <a href="#">개인정보처리방침</a>
         <a href="https://vast-soy-572.notion.site/Tam-Q-2cb17b72d7378076abfac81607f69b1b" target="_blank" rel="noopener">사용법</a>
+        <a class="round kakao" href="https://open.kakao.com/o/sPk3d4gi" target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.2c-4.2 0-7.5 2.6-7.5 5.9 0 2.1 1.4 3.9 3.5 5l-.7 2.6c-.1.3.2.5.5.3l3.1-2c.4 0 .7.1 1.1.1 4.2 0 7.5-2.6 7.5-5.9S14.2 3.2 10 3.2z"/></svg></a>
         <a class="round" href="https://www.instagram.com/tamq.high" target="_blank" rel="noopener" aria-label="인스타그램"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="14" height="14" rx="4"/><circle cx="10" cy="10" r="3.2"/><circle cx="14.2" cy="5.8" r=".6" fill="currentColor"/></svg></a>
         <a class="round" href="https://blog.naver.com/soliontamq" target="_blank" rel="noopener" aria-label="네이버 블로그"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4h3.2l3.6 5.6V4H15v12h-3.2L8.2 10.4V16H5z"/></svg></a>
       </div>
@@ -1055,7 +1085,6 @@ ul,ol{list-style:none}
 </footer>
 
 <div class="fab">
-  <a class="primary" href="https://tamq.co.kr/home"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.5l3 3L7 14H4v-3z"/></svg>무료로 탐구 시작</a>
   <a href="https://forms.gle/WBwdz5Db6WUmUx5x5" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 2.5c3.9 0 7 2.6 7 5.8s-3.1 5.8-7 5.8c-.7 0-1.4-.1-2-.2L3.5 15.5l.9-2.9C3 11.6 2 10 2 8.3 2 5.1 5.1 2.5 9 2.5z"/></svg>1:1 문의</a>
   <button class="top" id="toTop" aria-label="맨 위로"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14V4M4.5 8.5L9 4l4.5 4.5"/></svg></button>
 </div>
@@ -1087,13 +1116,13 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 // Shelf: feature books + topic books
 (() => {
   const books = [
-    { subj: '수학', tab: '미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'opt', en: 'MATHEMATICS<br>CALCULUS', short: '미분을 활용한<br>포장재 부피<br>최적화 전략', href: 'https://tamq.co.kr/home' },
-    { subj: '정보', tab: '정보', title: '생성형 AI가 학습 능력에 미치는 영향', meta: '정보 · 인공지능 기초', kind: 'rr', rc: '#e07a2c', art: 'net', en: 'INFORMATION<br>AI · SOCIETY', short: '생성형 AI가<br>학습 능력에<br>미치는 영향', href: 'https://tamq.co.kr/home' },
-    { subj: '과학', tab: '화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '과학 · 화학', kind: 'rr', rc: '#2f9a74', art: 'mol', en: 'CHEMISTRY<br>REACTION KINETICS', short: '반응 속도를<br>바꾸는 조건<br>실험 설계', href: 'https://tamq.co.kr/home' },
-    { subj: '수학', tab: '미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'arc', en: 'MATHEMATICS<br>PHYSICS LINK', short: '스포츠 탄도 궤적과<br>최적 투사 각도<br>탐구', href: 'https://tamq.co.kr/home' },
-    { subj: '사회', tab: '경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '사회 · 경제', kind: 'rr', rc: '#c9861f', art: 'bars', en: 'ECONOMICS<br>MICROECONOMICS', short: '한계비용과<br>한계수익으로 본<br>이윤 극대화', href: 'https://tamq.co.kr/home' },
-    { subj: '과학', tab: '생명과학', title: '카페인 섭취량과 집중력의 상관관계', meta: '과학 · 생명과학', kind: 'rr', rc: '#5f9a3e', art: 'leaf', en: 'BIOLOGY<br>HEALTH SCIENCE', short: '카페인 섭취량과<br>집중력의<br>상관관계', href: 'https://tamq.co.kr/home' },
-    { subj: '수학', tab: '미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '수학 · 미적분', kind: 'rr', rc: '#5b5bd6', art: 'path', en: 'MATHEMATICS<br>MOBILITY · AI', short: '자율주행차<br>곡선 주행 경로<br>예측과 미분', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'opt', sj: '미적분Ⅰ', kw: '미분 · 최적화', car: '공학 · 산업디자인', short: '미분을 활용한<br>포장재 부피<br>최적화 전략', href: 'https://tamq.co.kr/home' },
+    { subj: '정보', tab: '정보', title: '생성형 AI가 학습 능력에 미치는 영향', meta: '정보 · 인공지능 기초', kind: 'rr', rc: '#e07a2c', art: 'net', sj: '인공지능 기초', kw: '생성형 AI · 학습', car: '교육 · 사회과학', short: '생성형 AI가<br>학습 능력에<br>미치는 영향', href: 'https://tamq.co.kr/home' },
+    { subj: '과학', tab: '화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '과학 · 화학', kind: 'rr', rc: '#2f9a74', art: 'mol', sj: '화학', kw: '반응 속도 · 촉매', car: '화학공학 · 약학', short: '반응 속도를<br>바꾸는 조건<br>실험 설계', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'arc', sj: '미적분Ⅰ', kw: '미분 · 포물선 운동', car: '체육 · 물리', short: '스포츠 탄도 궤적과<br>최적 투사 각도<br>탐구', href: 'https://tamq.co.kr/home' },
+    { subj: '사회', tab: '경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '사회 · 경제', kind: 'rr', rc: '#c9861f', art: 'bars', sj: '경제', kw: '한계비용 · 한계수익', car: '경영 · 경제', short: '한계비용과<br>한계수익으로 본<br>이윤 극대화', href: 'https://tamq.co.kr/home' },
+    { subj: '과학', tab: '생명과학', title: '카페인 섭취량과 집중력의 상관관계', meta: '과학 · 생명과학', kind: 'rr', rc: '#5f9a3e', art: 'leaf', sj: '생명과학', kw: '신경계 · 카페인', car: '의약 · 보건', short: '카페인 섭취량과<br>집중력의<br>상관관계', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '수학 · 미적분', kind: 'rr', rc: '#5b5bd6', art: 'path', sj: '미적분Ⅰ', kw: '곡률 · 미분', car: '모빌리티 · AI', short: '자율주행차<br>곡선 주행 경로<br>예측과 미분', href: 'https://tamq.co.kr/home' },
   ];
   const rrArt = (k, c) => {
     const g = `<defs><linearGradient id="g${k}${c.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".28"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>`;
@@ -1112,7 +1141,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   const cover = (b) => {
     const img = `<img src="assets/${b.img}.webp" alt="" loading="lazy">`;
     switch (b.kind) {
-      case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span>TAM-Q<br>RESEARCH REPORT</span><span>2026</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><div class="rr-bot"><span>${b.en}</span><span>고등학교 2학년<br>탐구보고서</span></div></div>`;
+      case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span class="rr-doc">탐구보고서</span><span>2026학년도</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><dl class="rr-tbl"><dt>과목</dt><dd>${b.sj}</dd><dt>핵심 개념</dt><dd>${b.kw}</dd><dt>연계 진로</dt><dd>${b.car}</dd></dl><div class="rr-foot"><span class="rr-ok">2022 개정 교육과정 연계</span><img src="assets/logo-q.png" alt=""></div></div>`;
       case 'polaroid': return `<div class="cv cv-polaroid"><div class="pol"><span class="tape"></span>${img}<em>#${b.tab}</em></div></div>`;
       case 'photo': return `<div class="cv cv-photo">${img}<svg class="arc" viewBox="0 0 228 300" preserveAspectRatio="none"><path d="M10 250C70 60 160 50 220 210" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 6"/><circle cx="118" cy="98" r="4" fill="#f7a007"/></svg><div class="cap"><small>인기 탐구 주제</small><b>${b.sub}</b></div></div>`;
       case 'report': return `<div class="cv cv-report"><div class="sheet"><small>탐구보고서</small><div class="ttl"><i></i><i></i></div>${img}<dl><dt>과목</dt><dd>${b.tab}</dd><dt>주제</dt><dd>실험 설계</dd></dl></div></div>`;
