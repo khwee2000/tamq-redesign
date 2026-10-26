@@ -503,6 +503,10 @@ ul,ol{list-style:none}
 @media (max-width:960px){.fx-row,.fx-row.flip{grid-template-columns:1fr;gap:36px}.fx-row.flip .fx-copy{order:0}.fx-sub,.fx-row.flip .fx-sub{left:auto;right:-8px;width:46%}}
 @media (max-width:720px){.pains{flex-direction:column}.pain{flex-basis:auto;width:100%;font-size:17px;padding:22px}.fx{padding:80px 0 20px;margin-top:80px}.fx-row{padding:40px 0}.fx-sub{display:none}.pains-wrap{margin-bottom:64px}}
 
+/* ---------- navbar: no border, bare logo ---------- */
+.hd,.hd.scrolled{border:0!important}
+.hd .logo img,.hd.scrolled .logo img{width:32px;height:32px;padding:0;border-radius:0;background:none;box-shadow:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
