@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TAM-Q | 생기부 탐구보고서 AI 도우미</title>
+<meta name="description" content="고등학생 생활기록부 탐구보고서를 주제 선정부터 참고자료 탐색, 보고서 작성, 세특 평가까지 AI가 단계별로 도와주는 서비스입니다." />
+<link rel="icon" type="image/png" href="assets/logo-q.png" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+:root{
+  --bg:#ffffff;
+  --paper:#f6f7f9;
+  --ink:#0d1226;
+  --ink-2:#454c63;
+  --ink-3:#8a90a3;
+  --line:#e3e6ec;
+  --brand:#1b4298;
+  --brand-hover:#163780;
+  --brand-deep:#0a1a4d;
+  --accent:#f7a007;
+  /* radius hierarchy */
+  --r-btn:8px;
+  --r-input:10px;
+  --r-card:14px;
+  --r-ui:20px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.7;letter-spacing:-.015em;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul,ol{list-style:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px}
+
+/* ---------- type scale ---------- */
+.t-hero{font-size:clamp(44px,6.2vw,76px);line-height:1.12;font-weight:700;letter-spacing:-.05em}
+.t-sec{font-size:clamp(34px,4.4vw,54px);line-height:1.2;font-weight:700;letter-spacing:-.045em}
+.t-sub{font-size:clamp(20px,2vw,26px);line-height:1.4;font-weight:600;letter-spacing:-.03em}
+.t-body{font-size:17px;color:var(--ink-2)}
+.t-cap{font-size:13px;color:var(--ink-3);letter-spacing:0}
+.qmark{font-weight:800;color:var(--accent);margin-right:.18em}
+.idx{font-size:13px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;border-radius:var(--r-btn);font-size:16px;font-weight:600;transition:background-color .2s,transform .2s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .2s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-hover)}
+.btn-text{height:auto;padding:0;color:var(--ink-2)}
+.btn-text:hover{color:var(--ink)}
+
+/* ---------- nav ---------- */
+.hd{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:50;width:100%;border-radius:0;transition:top .45s var(--ease),width .45s var(--ease),border-radius .45s var(--ease),background-color .3s,box-shadow .3s}
+.hd .in{display:flex;align-items:center;height:68px;max-width:1360px;margin:0 auto;padding:0 32px;transition:height .45s var(--ease),padding .45s var(--ease)}
+.hd.scrolled{top:14px;width:min(1180px,calc(100% - 32px));border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);box-shadow:0 10px 30px -14px rgba(13,18,38,.25)}
+.hd.scrolled .in{height:56px;padding:0 10px 0 22px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-.03em}
+.logo img{width:30px;height:30px}
+.gnb{display:flex;gap:36px;margin:0 auto;font-size:15px;color:var(--ink-2)}
+.gnb a:hover{color:var(--ink)}
+.hd-r{display:flex;gap:4px;align-items:center}
+.hd-r a{height:38px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;font-size:14px;font-weight:600}
+.hd-r .login{color:var(--ink-2)}
+.hd-r .login:hover{color:var(--ink)}
+.hd-r .start{background:var(--ink);color:#fff;transition:background-color .2s}
+.hd-r .start:hover{background:var(--brand)}
+
+/* ---------- 1. HERO ---------- */
+.hero{position:relative;padding:120px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:5fr 6fr;gap:48px;align-items:center}
+.hero-copy .t-hero{margin-top:0}
+.hero-copy p{margin-top:28px;max-width:440px}
+.hero-ctas{display:flex;align-items:center;gap:24px;margin-top:40px}
+.hero-stage{position:relative;height:560px}
+.hero-ui{position:absolute;left:0;top:40px;width:900px;border-radius:var(--r-ui);overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(13,18,38,.05),0 40px 80px -30px rgba(13,18,38,.35);border:1px solid var(--line)}
+.hero-ui img{width:100%}
+.ask{position:absolute;left:-40px;top:0;z-index:2;width:340px;padding:22px 24px;border-radius:var(--r-card);background:var(--ink);color:#fff;box-shadow:0 24px 48px -20px rgba(13,18,38,.5)}
+.ask .t-cap{color:rgba(255,255,255,.5);display:block;margin-bottom:8px}
+.ask p{font-size:19px;font-weight:600;line-height:1.45;letter-spacing:-.03em;min-height:56px}
+.ask p .caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ask-out{position:absolute;left:-40px;top:178px;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 12px;border-radius:var(--r-btn);background:#fff;box-shadow:0 12px 28px -12px rgba(13,18,38,.3);font-size:14px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.ask-out.on{opacity:1;transform:none}
+.ask-out i{width:22px;height:22px;border-radius:6px;background:var(--brand);display:grid;place-items:center;color:#fff;font-style:normal;font-size:12px}
+
+/* ---------- 2. PROBLEM (editorial) ---------- */
+.problem{padding:120px 0 140px;border-top:1px solid var(--line)}
+.problem .grid{display:grid;grid-template-columns:3fr 9fr;gap:48px}
+.problem ol{display:grid;gap:56px}
+.problem li{display:grid;grid-template-columns:72px 1fr;align-items:baseline}
+.problem li .t-sub{font-size:clamp(24px,2.8vw,34px);font-weight:600;line-height:1.35}
+.problem li .t-sub s{text-decoration:none;color:var(--ink-3)}
+
+/* ---------- 3. SECOND HERO : 수행평가로 끝나지 않습니다 ---------- */
+.why{position:relative;height:260vh;background:var(--brand-deep);color:#fff}
+.why-stick{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.why .t-hero{font-size:clamp(48px,7.4vw,96px)}
+.why .t-hero span{color:rgba(255,255,255,.35);transition:color .6s}
+.why .t-hero span.lit{color:#fff}
+.why-sub{margin-top:24px;font-size:18px;color:rgba(255,255,255,.6);max-width:560px}
+.chain{position:relative;margin-top:72px;display:grid;grid-template-columns:repeat(6,1fr)}
+.chain-line{position:absolute;left:8px;right:8px;top:7px;height:2px;background:rgba(255,255,255,.14)}
+.chain-line i{display:block;height:100%;width:0;background:var(--accent)}
+.node{position:relative;padding-right:12px}
+.node b{display:block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:var(--brand-deep);transition:border-color .3s,background-color .3s}
+.node span{display:block;margin-top:18px;font-size:clamp(15px,1.5vw,19px);font-weight:600;color:rgba(255,255,255,.4);transition:color .3s}
+.node em{display:block;font-style:normal;font-size:13px;color:rgba(255,255,255,.3);margin-top:2px;transition:color .3s}
+.node.on b{border-color:var(--accent);background:var(--accent)}
+.node.on span{color:#fff}
+.node.on em{color:rgba(255,255,255,.6)}
+.node:first-child span::before{content:"Q. ";color:var(--accent)}
+
+/* ---------- 4. CURRICULUM DEMO ---------- */
+.curri{padding:160px 0}
+.curri .wrap{display:grid;grid-template-columns:4fr 8fr;gap:64px;align-items:start}
+.curri-copy{position:sticky;top:140px}
+.curri-copy p{margin-top:24px}
+.demo{border-radius:var(--r-ui);background:var(--paper);padding:28px;border:1px solid var(--line)}
+.demo-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.demo-head .chip{height:30px;padding:0 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:600;display:inline-flex;align-items:center}
+.cols{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:12px}
+.col{background:#fff;border-radius:var(--r-card);padding:16px;min-height:280px}
+.col h4{font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:10px;letter-spacing:0}
+.opt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 12px;border-radius:var(--r-btn);font-size:15px;font-weight:500;color:var(--ink-2);transition:background-color .2s,color .2s}
+.opt::before{content:"";width:14px;height:14px;border-radius:4px;border:1.5px solid #cdd2dc;flex:none;transition:all .2s}
+.opt:hover{background:var(--paper)}
+.opt.on{background:var(--ink);color:#fff}
+.opt.on::before{border-color:#fff;background:#fff;box-shadow:inset 0 0 0 3px var(--ink)}
+.result{display:flex;flex-direction:column;gap:10px}
+.rtopic{padding:14px;border-radius:var(--r-btn);border:1px solid var(--line);font-size:15px;font-weight:600;line-height:1.5;animation:rin .45s var(--ease) both}
+.rtopic small{display:block;font-size:12px;font-weight:500;color:var(--ink-3);margin-top:4px}
+.rtopic:first-of-type{border-color:var(--brand);box-shadow:0 0 0 3px rgba(27,66,152,.1)}
+@keyframes rin{from{opacity:0;transform:translateY(6px)}}
+.arrow-flow{display:flex;gap:6px;align-items:center;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.arrow-flow b{color:var(--ink);font-weight:600}
+
+/* ---------- 5. FEATURES (product UI, cropped, varied compositions) ---------- */
+.feat{padding:40px 0 160px;overflow:hidden}
+.fa{display:grid;grid-template-columns:4fr 8fr;gap:64px;align-items:center;padding:80px 0}
+.fa-ui{position:relative;width:calc(100% + 18vw);border-radius:var(--r-ui) 0 0 var(--r-ui);overflow:hidden;border:1px solid var(--line);border-right:0;box-shadow:0 40px 80px -40px rgba(13,18,38,.35)}
+.fa-copy p{margin-top:18px}
+.fa-copy ul{margin-top:28px;border-top:1px solid var(--line)}
+.fa-copy li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+.fb{padding:120px 0 80px;display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:end}
+.fb-num{font-size:clamp(120px,17vw,220px);font-weight:700;letter-spacing:-.07em;line-height:.85;color:var(--ink)}
+.fb-num small{font-size:.22em;letter-spacing:-.02em;color:var(--ink-3);font-weight:500;margin-left:6px}
+.fb-bars{display:grid;gap:14px;margin-top:40px;max-width:520px}
+.bar{display:grid;grid-template-columns:96px 1fr 40px;align-items:center;gap:14px;font-size:15px}
+.bar i{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i b{display:block;height:100%;background:var(--brand);width:0;transition:width 1.2s var(--ease)}
+.bar em{font-style:normal;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.fb-ui{border-radius:var(--r-ui);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(13,18,38,.3)}
+.fb .t-cap{margin-top:12px}
+.fc{padding:80px 0 0}
+.fc-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:40px}
+.fc-head p{max-width:400px}
+.fc-ui{height:520px;border-radius:var(--r-ui);overflow:hidden;border:1px solid var(--line);position:relative}
+.fc-ui img{width:100%;height:100%;object-fit:cover;object-position:top}
+.fc-ui::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,#fff)}
+
+/* ---------- 6. WORKFLOW (sticky) ---------- */
+.flow{background:var(--paper);padding:160px 0}
+.flow .wrap{display:grid;grid-template-columns:5fr 7fr;gap:64px}
+.flow-l{position:sticky;top:120px;align-self:start}
+.flow-l p{margin-top:20px}
+.ws{margin-top:48px;border-radius:var(--r-ui);background:#fff;border:1px solid var(--line);padding:20px;box-shadow:0 30px 60px -36px rgba(13,18,38,.3)}
+.ws-steps{display:flex;gap:4px;margin-bottom:18px}
+.ws-steps i{flex:1;height:4px;border-radius:2px;background:var(--line);transition:background-color .4s}
+.ws-steps i.on{background:var(--brand)}
+.ws-title{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:14px}
+.ws-title span{color:var(--ink-3);font-weight:500}
+.ws-body{height:220px;position:relative}
+.pane{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease),transform .45s var(--ease);display:flex;flex-direction:column;gap:8px}
+.pane.on{opacity:1;transform:none}
+.pane .row{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:var(--r-btn);border:1px solid var(--line);font-size:14px}
+.pane .row.sel{border-color:var(--brand);background:rgba(27,66,152,.04)}
+.pane .row small{margin-left:auto;font-size:12px;color:var(--ink-3)}
+.pane .ln{height:8px;border-radius:4px;background:#eceef3}
+.pane .lbl{font-size:12px;font-weight:600;color:var(--brand)}
+.pane .pdf{display:flex;gap:12px;height:100%}
+.pane .pg{flex:1;border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:7px}
+.pane .pg b{font-size:13px}
+.flow-r li{min-height:72vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--line);opacity:.3;transition:opacity .4s}
+.flow-r li:last-child{min-height:60vh}
+.flow-r li.on{opacity:1}
+.flow-r h3{font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-.04em;margin-top:8px}
+.flow-r p{margin-top:12px;max-width:440px}
+
+/* ---------- 7. VOICES (editorial quotes) : 레이아웃용 예시 문구 ---------- */
+.voices{padding:160px 0}
+.voices .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:64px}
+.quote{display:grid;grid-template-columns:3fr 9fr;gap:48px;padding:48px 0;border-top:1px solid var(--line)}
+.quote:last-child{border-bottom:1px solid var(--line)}
+.quote blockquote{font-size:clamp(24px,2.8vw,34px);font-weight:500;line-height:1.45;letter-spacing:-.035em}
+.quote blockquote::before{content:"“";color:var(--accent);margin-right:2px}
+.quote blockquote::after{content:"”";color:var(--accent)}
+
+/* ---------- 8. PRICING (typographic) ---------- */
+.pricing{padding:140px 0;background:var(--paper)}
+.pricing .head{display:grid;grid-template-columns:4fr 8fr;gap:64px;margin-bottom:64px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+.plan{padding:32px 32px 36px 0;display:flex;flex-direction:column}
+.plan+.plan{padding-left:32px;border-left:1px solid var(--line)}
+.plan h3{font-size:15px;font-weight:600;color:var(--ink-2)}
+.plan .price{font-size:clamp(34px,3.6vw,46px);font-weight:700;letter-spacing:-.045em;margin-top:18px;font-variant-numeric:tabular-nums;line-height:1.1}
+.plan .price small{font-size:16px;font-weight:500;color:var(--ink-3);letter-spacing:-.01em;margin-left:4px}
+.plan .note{font-size:14px;color:var(--ink-3);margin-top:8px;min-height:44px}
+.plan .lead{font-size:14px;font-weight:600;color:var(--brand);margin-top:8px}
+.plan ul{margin-top:24px;flex:1}
+.plan li{font-size:15px;padding:9px 0;border-top:1px solid var(--line)}
+.plan li.off{color:var(--ink-3);text-decoration:line-through;text-decoration-color:#c6cad4}
+.plan .btn{margin-top:28px;height:46px;justify-content:center}
+.plan .btn-line{border:1px solid var(--ink);color:var(--ink)}
+.plan .btn-line:hover{background:var(--ink);color:#fff}
+.plan.main h3{color:var(--ink)}
+.plan.main .price{font-size:clamp(44px,4.6vw,60px)}
+.fine{margin-top:32px;font-size:14px;color:var(--ink-3)}
+
+/* ---------- 9. FAQ (plain) ---------- */
+.faq{padding:140px 0}
+.faq .wrap{display:grid;grid-template-columns:4fr 8fr;gap:64px}
+.qa{border-bottom:1px solid var(--line)}
+.qa:first-child{border-top:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;text-align:left;padding:24px 0;font-size:18px;font-weight:500;letter-spacing:-.025em}
+.qa button span.pm{position:relative;width:14px;height:14px;flex:none}
+.qa button span.pm::before,.qa button span.pm::after{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--ink-3);transition:transform .3s var(--ease)}
+.qa button span.pm::after{transform:rotate(90deg)}
+.qa.open button span.pm::after{transform:rotate(0)}
+.qa-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.qa.open .qa-b{grid-template-rows:1fr}
+.qa-b>div{overflow:hidden}
+.qa-b p{padding:0 48px 26px 0;color:var(--ink-2);font-size:16px}
+.qa-b a{color:var(--brand);font-weight:600}
+
+/* ---------- 10. FINAL CTA ---------- */
+.final{padding:180px 0 160px;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.final .q-bg{position:absolute;right:-6vw;top:50%;transform:translateY(-50%);font-size:clamp(360px,48vw,680px);font-weight:800;line-height:.8;color:rgba(255,255,255,.04);letter-spacing:-.08em;user-select:none}
+.final .t-hero{position:relative}
+.final .t-hero .qmark{font-size:1em}
+.final p{position:relative;margin-top:24px;color:rgba(255,255,255,.6);font-size:18px}
+.final .btn{position:relative;margin-top:44px;background:#fff;color:var(--ink)}
+.final .btn:hover{background:var(--accent)}
+
+/* ---------- footer (quiet) ---------- */
+.ft{background:var(--ink);color:rgba(255,255,255,.45);font-size:13px;padding:0 0 48px}
+.ft .wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:32px;display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;line-height:1.9}
+.ft b{color:rgba(255,255,255,.8);font-weight:600}
+.ft nav{display:flex;gap:20px;flex-wrap:wrap}
+.ft nav a:hover{color:#fff}
+
+/* ---------- to top (small) ---------- */
+.to-top{position:fixed;right:24px;bottom:24px;z-index:60;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--line);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top svg{width:16px;height:16px}
+
+/* ---------- 0. INTRO ---------- */
+.intro{position:relative;height:100vh;min-height:640px;overflow:hidden;background:radial-gradient(70% 60% at 50% 45%,#eef2fb 0%,#fff 70%)}
+.bubbles{position:absolute;inset:80px 4% 40px}
+.bb{position:absolute;max-width:300px;padding:14px 18px 15px;border-radius:18px;font-size:clamp(15px,1.4vw,18px);font-weight:600;line-height:1.4;letter-spacing:-.03em;box-shadow:0 14px 30px -16px rgba(13,18,38,.35);opacity:0;transform:scale(.4) translateY(20px);transform-origin:bottom left}
+.bb small{display:block;font-size:11px;font-weight:600;margin-bottom:4px;opacity:.6;letter-spacing:0}
+.bb::after{content:"";position:absolute;bottom:-7px;width:14px;height:14px;transform:rotate(45deg);border-radius:2px}
+.bb-s{background:#fff;color:var(--ink);border-bottom-left-radius:6px}
+.bb-s::after{left:16px;background:#fff}
+.bb-p{background:var(--brand);color:#fff;border-bottom-right-radius:6px;transform-origin:bottom right}
+.bb-p::after{right:16px;background:var(--brand)}
+.intro.play .bb{animation:pop .55s cubic-bezier(.34,1.56,.64,1) forwards,gather .7s var(--ease) forwards;animation-delay:calc(.25s + var(--i)*.32s),calc(3.6s + var(--i)*.03s)}
+@keyframes pop{to{opacity:1;transform:none}}
+@keyframes gather{from{opacity:1;transform:none;filter:blur(0)}to{opacity:0;transform:scale(.6);filter:blur(6px);left:44%;top:44%}}
+.stage0{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+.start-word{display:flex;align-items:center;gap:.08em;font-size:clamp(64px,12vw,176px);font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--ink)}
+.start-word img{width:.95em;height:.95em;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(27,66,152,.35))}
+.start-word span,.start-word img,.start-lead,.start-cta{opacity:0;transform:translateY(24px)}
+.intro.play .start-word span,.intro.play .start-word img,.intro.play .start-lead,.intro.play .start-cta{animation:rise .8s var(--ease) forwards}
+.intro.play .start-word span:first-child{animation-delay:4.2s}
+.intro.play .start-word img{animation:qin .9s cubic-bezier(.34,1.56,.64,1) 4.35s forwards}
+.intro.play .start-word span:last-child{animation-delay:4.5s}
+.intro.play .start-lead{animation-delay:4.9s}
+.intro.play .start-cta{animation-delay:5.1s}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes qin{from{opacity:0;transform:scale(.3) rotate(-40deg)}to{opacity:1;transform:none}}
+.start-lead{margin-top:28px;font-size:clamp(17px,1.6vw,20px);color:var(--ink-2)}
+.start-cta{margin-top:32px}
+.replay{position:absolute;right:32px;bottom:28px;font-size:13px;color:var(--ink-3);opacity:0;transition:opacity .3s}
+.intro.done .replay{opacity:1}
+.replay:hover{color:var(--ink)}
+.intro.static .bb{display:none}
+.intro.static .start-word span,.intro.static .start-word img,.intro.static .start-lead,.intro.static .start-cta{opacity:1;transform:none;animation:none}
+@media (max-width:720px){.bubbles{inset:76px 0 30px}.bb{max-width:210px;padding:11px 14px}.bb:nth-child(n+7){display:none}.start-word{flex-direction:column;gap:0}.start-word img{width:1.1em;height:1.1em;margin:-.1em 0}}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .gnb{display:none}.hd-r{margin-left:auto}
+  .hero .wrap,.curri .wrap,.flow .wrap,.faq .wrap,.pricing .head,.problem .grid,.fa,.fb{grid-template-columns:1fr}
+  .hero-stage{height:420px}
+  .ask{left:0}.ask-out{left:0}
+  .curri-copy,.flow-l{position:static}
+  .fa-ui{width:calc(100% + 32px)}
+  .flow-r li{min-height:auto;padding:48px 0;opacity:1}
+  .ws{display:none}
+  .quote{grid-template-columns:1fr;gap:16px}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .hd .in{height:60px;padding:0 20px}
+  .hd.scrolled{top:10px;width:calc(100% - 20px)}
+  .hd.scrolled .in{height:52px;padding:0 6px 0 16px}
+  .hd-r .login{display:none}
+  .hero{padding:120px 0 72px}
+  .hero-stage{height:340px}
+  .hero-ui{width:640px;top:120px}
+  .ask{width:calc(100% - 20px);padding:18px}
+  .ask p{font-size:17px;min-height:50px}
+  .ask-out{top:auto;bottom:0;left:0}
+  .problem,.curri,.voices,.pricing,.faq{padding:96px 0}
+  .problem li{grid-template-columns:44px 1fr}
+  .why{height:auto}
+  .why-stick{position:static;height:auto;padding:110px 0}
+  .chain{grid-template-columns:1fr;gap:22px;margin-top:48px}
+  .chain-line{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto}
+  .chain-line i{width:100%!important;height:100%}
+  .node{display:grid;grid-template-columns:32px 1fr;align-items:center}
+  .node span{margin-top:0}
+  .node em{grid-column:2}
+  .node b{border-color:var(--accent);background:var(--accent)}
+  .node span{color:#fff}
+  .cols{grid-template-columns:1fr}
+  .col{min-height:auto}
+  .demo{padding:16px}
+  .fc-ui{height:300px}
+  .fc-head{flex-direction:column;align-items:flex-start}
+  .plans{grid-template-columns:1fr}
+  .plan,.plan+.plan{padding:28px 0;border-left:0;border-top:1px solid var(--line)}
+  .final{padding:120px 0}
+  .to-top{right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="in">
+    <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-q.png" alt="" />Tam-Q</a>
+    <nav class="gnb" aria-label="주요 메뉴">
+      <a href="#why">왜 탐큐</a>
+      <a href="#curri">탐구 주제</a>
+      <a href="#feat">기능</a>
+      <a href="#pricing">요금제</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hd-r">
+      <a class="login" href="https://tamq.co.kr/login">로그인</a>
+      <a class="start" href="https://tamq.co.kr/home">시작하기</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 0. INTRO : 고민 말풍선 → START TAM-Q -->
+  <section class="intro" id="intro">
+    <div class="bubbles" aria-hidden="true"><div class="bb bb-s" style="left:8%;top:22%;--i:0"><small>고2 학생</small>수행평가 주제 뭐 하지…</div><div class="bb bb-p" style="left:58%;top:16%;--i:1"><small>학부모</small>우리 애 세특, 이대로 괜찮은 걸까요?</div><div class="bb bb-s" style="left:20%;top:58%;--i:2"><small>고1 학생</small>자료는 대체 어디서 찾아?</div><div class="bb bb-s" style="left:66%;top:48%;--i:3"><small>고3 학생</small>보고서 다 썼는데 이게 맞나?</div><div class="bb bb-p" style="left:34%;top:36%;--i:4"><small>학부모</small>진로랑 과목이 이어져야 한다는데…</div><div class="bb bb-s" style="left:10%;top:78%;--i:5"><small>고2 학생</small>세특에 뭐라고 남겨야 돼?</div><div class="bb bb-p" style="left:62%;top:76%;--i:6"><small>학부모</small>학원 말고는 방법이 없을까요?</div><div class="bb bb-s" style="left:44%;top:62%;--i:7"><small>고1 학생</small>선택 과목 뭐 들어야 하지</div></div>
+    <div class="stage0">
+      <h1 class="start-word"><span>Start</span><img src="assets/hero-q.webp" alt="" /><span>Tam-Q</span></h1>
+      <p class="start-lead">이 고민들, 질문 하나에서 시작합니다.</p>
+      <a class="btn btn-primary start-cta" href="https://tamq.co.kr/home">무료로 탐구 시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <button class="replay" id="replay" aria-label="처음 장면 다시 보기">다시 보기</button>
+  </section>
+
+  <!-- 1. HERO : 질문이 탐구 프로젝트로 바뀌는 장면 -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h2 class="t-hero reveal">수행평가의 질문을,<br />입시에 남을<br />기록으로.</h2>
+        <p class="t-body reveal" style="--d:.08s">한 번의 관심이 탐구보고서가 되고, 그 과정이 세특과 입시의 근거로 이어지도록 TAM-Q가 모든 단계를 연결합니다.</p>
+        <div class="hero-ctas reveal" style="--d:.14s">
+          <a class="btn btn-primary" href="https://tamq.co.kr/home">지금 시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn-text" href="#why">어떻게 이어지나요?</a>
+        </div>
+      </div>
+      <div class="hero-stage reveal" style="--d:.2s" aria-hidden="true">
+        <div class="ask"><span class="t-cap">학생의 질문</span><p><span class="qmark">Q.</span><span id="askText"></span><span class="caret"></span></p></div>
+        <div class="ask-out" id="askOut"><i>✓</i>탐구 주제 5개를 찾았어요</div>
+        <div class="hero-ui"><img src="assets/project-topic.webp" width="1920" height="1200" alt="" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SECOND HERO -->
+  <section class="why" id="why">
+    <div class="why-stick">
+      <div class="wrap">
+        <h2 class="t-hero" id="whyTitle"><span>수행평가로</span><br /><span>끝나지 않습니다.</span></h2>
+        <p class="why-sub">질문 하나가 주제가 되고, 자료와 보고서를 거쳐 세특에 남고, 결국 입시의 기록이 됩니다. TAM-Q는 결과만 대신 써주는 도구가 아닙니다.</p>
+        <div class="chain" id="chain">
+          <div class="chain-line"><i id="chainFill"></i></div>
+          <div class="node"><b></b><span>질문</span><em>관심을 질문으로</em></div>
+          <div class="node"><b></b><span>탐구 주제</span><em>교과·단원 기반</em></div>
+          <div class="node"><b></b><span>자료 조사</span><em>참고자료 연결</em></div>
+          <div class="node"><b></b><span>보고서</span><em>과정을 근거로</em></div>
+          <div class="node"><b></b><span>세특</span><em>역량을 기록으로</em></div>
+          <div class="node"><b></b><span>입시 기록</span><em>성장을 경쟁력으로</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CURRICULUM DEMO -->
+  <section class="curri" id="curri">
+    <div class="wrap">
+      <div class="curri-copy">
+        <p class="idx reveal">2022 개정 교육과정</p>
+        <h2 class="t-sec reveal" style="margin-top:14px">교육과정에서<br />바로 시작하세요.</h2>
+        <p class="t-body reveal">과목과 단원을 고르면, 교과 개념과 진로 관심사를 연결한 탐구 주제가 바로 나옵니다. 오른쪽에서 직접 눌러 보세요.</p>
+      </div>
+      <div class="demo reveal" style="--d:.1s">
+        <div class="demo-head"><span class="chip">고등학교 2학년 · 수학</span><span class="t-cap">예시 화면</span></div>
+        <div class="cols">
+          <div class="col"><h4>과목</h4><div id="dSubj"></div></div>
+          <div class="col"><h4>단원</h4><div id="dUnit"></div></div>
+          <div class="col"><h4>추천 탐구 주제</h4><div class="result" id="dRes"></div></div>
+        </div>
+        <div class="arrow-flow" id="dPath"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FEATURES -->
+  <section class="feat" id="feat">
+    <div class="wrap">
+      <article class="fa">
+        <div class="fa-copy">
+          <p class="idx reveal">보고서 첨삭</p>
+          <h2 class="t-sec reveal" style="margin-top:14px">어디를 고칠지,<br />문장 단위로.</h2>
+          <p class="t-body reveal">작성한 탐구보고서를 평가 기준에 따라 분석하고, 원문 위에 구체적인 수정 방향을 표시합니다.</p>
+          <ul class="reveal">
+            <li>동기·과정·성취·발전 구조 분석</li>
+            <li>논리 공백과 보완 참고자료 제안</li>
+            <li>원문에 바로 적용할 수 있는 수정 예시</li>
+          </ul>
+        </div>
+        <div class="fa-ui reveal" style="--d:.1s"><img src="assets/review-structure.webp" width="1920" height="1200" alt="TAM-Q 보고서 첨삭 실제 화면: 동기·과정·성취·발전 구조 분석" loading="lazy" /></div>
+      </article>
+
+      <article class="fb">
+        <div>
+          <p class="idx reveal">세특 점수 평가</p>
+          <div class="fb-num reveal" style="margin-top:20px">99.2<small>/ 100</small></div>
+          <div class="fb-bars" id="bars">
+            <div class="bar"><span>학업역량</span><i><b data-w="100"></b></i><em>10</em></div>
+            <div class="bar"><span>진로역량</span><i><b data-w="96"></b></i><em>9.6</em></div>
+            <div class="bar"><span>공동체역량</span><i><b data-w="86"></b></i><em>8.6</em></div>
+          </div>
+        </div>
+        <div class="reveal" style="--d:.1s">
+          <p class="t-sub" style="font-size:22px">지금 내 세특이<br />어디쯤인지, 숫자로.</p>
+          <p class="t-body" style="margin-top:14px">학업·진로·공동체 역량별로 진단하고, 목표 대학군 참고 점수와 비교해 강점과 보완할 점을 보여 줍니다.</p>
+          <div class="fb-ui" style="margin-top:28px"><img src="assets/score-summary.webp" width="1920" height="1200" alt="TAM-Q 세특 점수 평가 실제 화면" loading="lazy" /></div>
+          <p class="t-cap">점수는 실제 서비스 화면의 예시입니다.</p>
+        </div>
+      </article>
+
+      <article class="fc">
+        <div class="fc-head">
+          <div>
+            <p class="idx reveal">진로 로드맵</p>
+            <h2 class="t-sec reveal" style="margin-top:14px">희망 진로에서 거꾸로.</h2>
+          </div>
+          <p class="t-body reveal">핵심 가치와 희망 진로를 바탕으로 선택 과목, 학년별 탐구 활동, 학업 전략을 하나의 로드맵으로 연결합니다.</p>
+        </div>
+        <div class="fc-ui reveal"><img src="assets/roadmap-builder.webp" width="1920" height="1200" alt="TAM-Q 진로 로드맵 실제 화면" loading="lazy" /></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6. WORKFLOW -->
+  <section class="flow">
+    <div class="wrap">
+      <div class="flow-l">
+        <p class="idx">탐구 프로젝트</p>
+        <h2 class="t-sec" style="margin-top:14px">주제부터 PDF까지,<br />5단계로 끝.</h2>
+        <p class="t-body">하나의 프로젝트 안에서 다시 입력하지 않아도 맥락이 이어집니다.</p>
+        <div class="ws" aria-hidden="true">
+          <div class="ws-steps" id="wsSteps"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="ws-title"><b id="wsName">주제 설정</b><span id="wsNum">1 / 5</span></div>
+          <div class="ws-body">
+            <div class="pane on"><div class="row sel">미분을 활용한 포장재 부피 최적화 전략<small>선택됨</small></div><div class="row">스포츠 경기의 탄도 궤적 분석</div><div class="row">한계비용과 한계수익을 활용한 분석</div><div class="row">자율주행차의 곡선 주행 경로 예측</div></div>
+            <div class="pane"><div class="row sel">포장재 설계와 최적화 연구<small>논문</small></div><div class="row">미분의 실생활 응용 사례<small>기사</small></div><div class="row">물류 포장 표준과 비용 구조<small>보고서</small></div></div>
+            <div class="pane"><span class="lbl">동기</span><div class="ln" style="width:94%"></div><div class="ln" style="width:72%"></div><span class="lbl">과정</span><div class="ln" style="width:88%"></div><div class="ln" style="width:96%"></div><div class="ln" style="width:60%"></div><span class="lbl">성취 · 발전</span><div class="ln" style="width:80%"></div></div>
+            <div class="pane"><span class="lbl">세부능력 및 특기사항</span><div class="ln" style="width:100%"></div><div class="ln" style="width:96%"></div><div class="ln" style="width:98%"></div><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div></div>
+            <div class="pane"><div class="pdf"><div class="pg"><b>탐구보고서</b><div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:90%"></div></div><div class="pg"><b>세특 정리</b><div class="ln"></div><div class="ln" style="width:70%"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <ol class="flow-r" id="flowR">
+        <li data-n="주제 설정"><span class="idx">01</span><h3>주제 설정</h3><p class="t-body">교육과정·과목·단원을 고르면 교과 개념과 진로를 연결한 탐구 주제를 추천합니다.</p></li>
+        <li data-n="참고 자료"><span class="idx">02</span><h3>참고 자료</h3><p class="t-body">선택한 주제에 바로 쓸 수 있는 참고자료를 찾아 연결합니다.</p></li>
+        <li data-n="보고서 작성"><span class="idx">03</span><h3>보고서 작성</h3><p class="t-body">동기·과정·성취·발전의 흐름으로 탐구보고서를 씁니다.</p></li>
+        <li data-n="세특 작성"><span class="idx">04</span><h3>세특 작성</h3><p class="t-body">탐구 과정을 세부능력 및 특기사항 문장으로 정리합니다.</p></li>
+        <li data-n="PDF 저장"><span class="idx">05</span><h3>PDF 저장</h3><p class="t-body">완성한 보고서와 세특을 PDF로 내보냅니다.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. VOICES : 아래 후기는 레이아웃용 예시입니다. 실제 후기로 교체하세요. -->
+  <section class="voices">
+    <div class="wrap">
+      <div class="head"><h2 class="t-sec reveal">먼저 써 본 사람들</h2><span class="t-cap reveal">예시 후기 · 실제 후기로 교체 예정</span></div>
+      <div class="quote reveal"><span class="t-cap">고2 · 자연계열</span><blockquote>주제 고민하던 일주일이 하루로 줄었어요. 단원만 고르니까 그날 자료 조사까지 끝냈어요.</blockquote></div>
+      <div class="quote reveal"><span class="t-cap">고3 · 인문계열</span><blockquote>첨삭이 ‘좋아요’로 끝나지 않고, 어느 문장을 왜 고쳐야 하는지 짚어 줬어요.</blockquote></div>
+      <div class="quote reveal"><span class="t-cap">학부모</span><blockquote>진로에서 거꾸로 과목을 짜 주니, 아이와 이야기할 거리가 생겼어요.</blockquote></div>
+    </div>
+  </section>
+
+  <!-- 8. PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="t-sec reveal">요금제</h2>
+        <p class="t-body reveal">세특 평가만 필요하다면 이용권, 탐구 전 과정을 쓰려면 Pro를 고르세요.</p>
+      </div>
+      <div class="plans reveal">
+        <div class="plan">
+          <h3>점수 평가 이용권</h3>
+          <div class="price">5,000원<small>/ 5회</small></div>
+          <p class="note">10회 10,000원 · 20회 18,000원</p>
+          <ul><li>세특 점수 평가 (구매 횟수만큼)</li><li class="off">탐구보고서 프로젝트 생성·저장</li><li class="off">로드맵 · 마인드맵 작성</li><li class="off">세특 점수 평가 이력 보관</li></ul>
+          <a class="btn btn-line" href="https://tamq.co.kr/pricing">이용권 구매</a>
+        </div>
+        <div class="plan main">
+          <h3>Pro 6개월</h3>
+          <div class="price">119,000원</div>
+          <p class="lead">한 번 결제로 6개월 · 월 19,833원꼴</p>
+          <ul><li>탐구보고서 프로젝트 생성·저장</li><li>로드맵 · 마인드맵 작성</li><li>세특 점수 평가 무제한</li><li>세특 점수 평가 이력 보관</li></ul>
+          <a class="btn btn-primary" href="https://tamq.co.kr/pricing">6개월 구독</a>
+        </div>
+        <div class="plan">
+          <h3>Pro 1개월</h3>
+          <div class="price">29,000원<small>/ 월</small></div>
+          <p class="note">추천인 코드가 있다면 1개월 구독에 한해 6개월간 월 19,000원</p>
+          <ul><li>탐구보고서 프로젝트 생성·저장</li><li>로드맵 · 마인드맵 작성</li><li>세특 점수 평가 무제한</li><li>세특 점수 평가 이력 보관</li></ul>
+          <a class="btn btn-line" href="https://tamq.co.kr/pricing">1개월 구독</a>
+        </div>
+      </div>
+      <p class="fine">결제 전 환불 정책을 확인해 주세요. 서비스를 1회 이상 이용한 뒤에는 환불되지 않습니다.</p>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <h2 class="t-sec reveal">자주 묻는 질문</h2>
+      <div class="reveal" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- 10. FINAL CTA -->
+  <section class="final">
+    <span class="q-bg" aria-hidden="true">Q</span>
+    <div class="wrap">
+      <h2 class="t-hero reveal">질문 하나가<br /><span class="qmark">Q.</span>기록의 시작이 됩니다.</h2>
+      <p class="reveal">탐구보고서부터 세특, 진로 로드맵까지 TAM-Q와 함께 완성해 보세요.</p>
+      <a class="btn reveal" href="https://tamq.co.kr/home">무료로 탐구 시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div>
+      <b>솔리온 (Solion)</b> · 고등학생의 세특과 탐구보고서를 위한 AI 교육도우미, TAM-Q<br />
+      대표 정영훈, 양동균 · 사업자등록번호 185-79-00549 · 서울 동대문구 회기로 111 307호<br />
+      010-2504-1147, 010-2141-3739 · yangcode1210@gmail.com · © 2026 TAM-Q / Solion
+    </div>
+    <nav>
+      <a href="#">개인정보처리방침</a>
+      <a href="https://vast-soy-572.notion.site/Tam-Q-2cb17b72d7378076abfac81607f69b1b" target="_blank" rel="noopener">사용법</a>
+      <a href="https://forms.gle/WBwdz5Db6WUmUx5x5" target="_blank" rel="noopener">문의</a>
+      <a href="https://open.kakao.com/o/sPk3d4gi" target="_blank" rel="noopener">오류 신고</a>
+      <a href="https://www.instagram.com/tamq.high" target="_blank" rel="noopener">인스타그램</a>
+      <a href="https://blog.naver.com/soliontamq" target="_blank" rel="noopener">블로그</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="맨 위로"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M4 7l4-4 4 4"/></svg></button>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Reveal
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Nav + to-top
+const hd = $('#hd'), toTop = $('#toTop');
+const onScroll = () => { hd.classList.toggle('scrolled', scrollY > 40); toTop.classList.toggle('show', scrollY > 900); };
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+toTop.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+
+// Intro: worries pop, then START TAM-Q
+(() => {
+  const el = $('#intro');
+  if (reduce) { el.classList.add('static', 'done'); return; }
+  const play = () => { el.classList.remove('play', 'done'); void el.offsetWidth; el.classList.add('play'); setTimeout(() => el.classList.add('done'), 5600); };
+  $('#replay').onclick = play; play();
+})();
+
+// Hero: typed question -> result
+(() => {
+  const qs = ['미적분으로 탐구할 수 있는 주제는 뭐가 있을까?', '화학 실험으로 세특에 남길 만한 주제는?', '경제 개념으로 진로와 연결되는 탐구를 하고 싶어요'];
+  const el = $('#askText'), out = $('#askOut'); let k = 0;
+  if (reduce) { el.textContent = qs[0]; out.classList.add('on'); return; }
+  const type = () => {
+    const q = qs[k]; let i = 0; out.classList.remove('on'); el.textContent = '';
+    const t = setInterval(() => {
+      el.textContent = q.slice(0, ++i);
+      if (i >= q.length) { clearInterval(t); setTimeout(() => out.classList.add('on'), 400); setTimeout(() => { k = (k + 1) % qs.length; type(); }, 4200); }
+    }, 55);
+  };
+  setTimeout(type, 700);
+})();
+
+// Second hero: scroll-driven chain
+(() => {
+  const sec = $('#why'), fill = $('#chainFill'), nodes = [...document.querySelectorAll('.node')], spans = [...document.querySelectorAll('#whyTitle span')];
+  const upd = () => {
+    if (innerWidth <= 720) { spans.forEach((s) => s.classList.add('lit')); return; }
+    const r = sec.getBoundingClientRect(), total = r.height - innerHeight;
+    const p = Math.min(1, Math.max(0, -r.top / total));
+    spans[0].classList.toggle('lit', p > .02); spans[1].classList.toggle('lit', p > .12);
+    const q = Math.min(1, Math.max(0, (p - .18) / .7));
+    fill.style.width = (q * 100) + '%';
+    nodes.forEach((n, i) => n.classList.toggle('on', q >= i / (nodes.length - 1) - .001));
+  };
+  addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+})();
+
+// Curriculum demo (예시 데이터)
+(() => {
+  const D = {
+    '대수': { '지수함수와 로그함수': [['소음 크기와 데시벨: 로그함수로 보는 소리의 세기', '물리 · 환경 진로'], ['복리와 인플레이션의 지수적 변화 분석', '경제 · 경영 진로']], '삼각함수': [['주기 함수로 분석하는 조수 간만의 차', '해양 · 지구과학 진로'], ['음파 합성과 삼각함수: 소리의 간섭 탐구', '공학 · 음향 진로']], '수열': [['피보나치 수열로 보는 식물의 잎차례', '생명과학 진로'], ['대출 상환 방식별 수열 모델 비교', '경제 · 금융 진로']] },
+    '미적분 I': { '함수의 극한과 연속': [['감염병 확산 곡선의 극한값으로 보는 집단 면역', '보건 · 의료 진로'], ['연속성으로 해석하는 교통 신호 체계', '도시공학 진로']], '미분': [['미분을 활용한 포장재 부피 최적화 전략', '공학 · 디자인 진로'], ['스포츠 경기의 탄도 궤적 분석: 최적 투사 각도 탐구', '체육 · 물리 진로'], ['자율주행차의 곡선 주행 경로 예측과 미분 활용', '모빌리티 · AI 진로']], '적분': [['적분으로 계산하는 댐 수문에 작용하는 수압', '토목공학 진로'], ['소비자 잉여를 적분으로 시각화하기', '경제 진로']] },
+    '확률과 통계': { '경우의 수': [['비밀번호 조합 수로 보는 보안 강도', '정보보안 진로']], '확률': [['확률분포로 보는 대기 시간 줄이기', '산업공학 진로'], ['의료 검사의 위양성과 조건부 확률', '의학 · 보건 진로']], '통계': [['표본 크기에 따른 여론조사 오차 분석', '사회과학 · 언론 진로']] },
+  };
+  let s = '미적분 I', u = '미분', auto = true;
+  const render = () => {
+    $('#dSubj').innerHTML = Object.keys(D).map((x) => `<button class="opt${x === s ? ' on' : ''}" data-s="${x}">${x}</button>`).join('');
+    $('#dUnit').innerHTML = Object.keys(D[s]).map((x) => `<button class="opt${x === u ? ' on' : ''}" data-u="${x}">${x}</button>`).join('');
+    $('#dRes').innerHTML = D[s][u].map(([t, c], i) => `<div class="rtopic" style="animation-delay:${i * .08}s">${t}<small>${c}</small></div>`).join('');
+    $('#dPath').innerHTML = `<b>${s}</b> → <b>${u}</b> → 추천 ${D[s][u].length}개`;
+    document.querySelectorAll('[data-s]').forEach((b) => b.onclick = () => { auto = false; s = b.dataset.s; u = Object.keys(D[s])[0]; render(); });
+    document.querySelectorAll('[data-u]').forEach((b) => b.onclick = () => { auto = false; u = b.dataset.u; render(); });
+  };
+  render();
+  if (!reduce) setInterval(() => { if (!auto) return; const us = Object.keys(D[s]); const i = us.indexOf(u); if (i < us.length - 1) u = us[i + 1]; else { const ss = Object.keys(D); s = ss[(ss.indexOf(s) + 1) % ss.length]; u = Object.keys(D[s])[0]; } render(); }, 3200);
+})();
+
+// Score bars
+(() => {
+  const bars = $('#bars');
+  new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { bars.querySelectorAll('b').forEach((b) => b.style.width = b.dataset.w + '%'); o.disconnect(); } }), { threshold: .4 }).observe(bars);
+})();
+
+// Workflow sticky steps
+(() => {
+  const items = [...document.querySelectorAll('#flowR li')], panes = [...document.querySelectorAll('.pane')], steps = [...document.querySelectorAll('#wsSteps i')];
+  const set = (k) => {
+    items.forEach((x, i) => x.classList.toggle('on', i === k));
+    panes.forEach((x, i) => x.classList.toggle('on', i === k));
+    steps.forEach((x, i) => x.classList.toggle('on', i <= k));
+    $('#wsName').textContent = items[k].dataset.n; $('#wsNum').textContent = `${k + 1} / ${items.length}`;
+  };
+  const o = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) set(items.indexOf(e.target)); }), { rootMargin: '-45% 0px -45% 0px' });
+  items.forEach((x) => o.observe(x)); set(0);
+})();
+
+// FAQ
+(() => {
+  const faq = [
+    ['TAM-Q가 보고서를 대신 써 주나요?', 'TAM-Q는 결과만 대신 써 주는 도구가 아닙니다. 주제 구체화, 참고자료 연결, 구조 분석과 수정 방향 제시처럼 학생이 직접 탐구하고 쓰는 과정을 단계마다 돕습니다.'],
+    ['어떤 과목을 지원하나요?', '2022 개정 교육과정의 과목과 단원을 골라 주제를 추천받을 수 있습니다. 목록에 없는 과목이나 단원은 직접 입력해도 됩니다.'],
+    ['세특 점수는 어떤 기준으로 매기나요?', '학업역량, 진로역량, 공동체역량으로 나눠 진단하고 종합 점수를 보여 드립니다. 목표 대학군 참고 점수와 비교할 수도 있습니다.'],
+    ['이용권과 Pro 구독은 무엇이 다른가요?', '이용권은 세특 점수 평가만 구매한 횟수만큼 쓰는 일회성 결제입니다. Pro는 탐구 프로젝트, 로드맵·마인드맵, 세특 점수 평가 무제한과 평가 이력 보관까지 모두 이용할 수 있습니다.'],
+    ['추천인 코드는 어떻게 적용되나요?', 'Pro 1개월 구독에만 적용됩니다. 결제 전에 코드를 입력하면 6개월간 매월 19,000원, 이후에는 29,000원이 청구됩니다. Pro 6개월 구독에는 적용되지 않습니다.'],
+    ['구독을 해지하면 바로 끊기나요?', '해지를 예약해도 이미 결제한 기간이 끝날 때까지 그대로 이용할 수 있습니다. 남은 기간에 대한 부분 환불은 하지 않습니다.'],
+    ['환불은 어떻게 받나요?', '프로젝트 생성, 보고서 첨삭, 세특 점수 평가 중 하나라도 이용했다면 환불이 어렵습니다. 환불 요청은 yangcode1210@gmail.com으로만 접수되며, 7영업일 안에 금액을 안내해 드립니다.'],
+    ['오류를 발견하면 어디에 알리나요?', '<a href="https://open.kakao.com/o/sPk3d4gi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>으로 알려 주시면 빠르게 확인하겠습니다.'],
+  ];
+  const list = $('#faqList');
+  list.innerHTML = faq.map(([q, a]) => `<div class="qa"><button aria-expanded="false">${q}<span class="pm"></span></button><div class="qa-b"><div><p>${a}</p></div></div></div>`).join('');
+  list.querySelectorAll('.qa button').forEach((b) => b.onclick = () => { const o = b.parentElement.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+})();
+</script>
+</body>
+</html>
