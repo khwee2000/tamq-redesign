@@ -1092,6 +1092,22 @@ ul,ol{list-style:none}
 
 .cs-card .st2-pen.p2{bottom:46px;left:auto;right:90px}
 
+/* ---------- hero worry bubbles ---------- */
+.hbub{position:absolute;inset:0;pointer-events:none;z-index:3}
+.hb2{position:absolute;white-space:nowrap;padding:11px 16px 12px;border-radius:16px;font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1.35;text-align:left;box-shadow:0 16px 30px -14px rgba(5,15,50,.5);opacity:0;transform:scale(.5) translateY(14px);animation:hbpop .6s cubic-bezier(.34,1.56,.64,1) forwards,hbfloat 6s ease-in-out infinite;animation-delay:calc(.5s + var(--i)*.45s),calc(1.2s + var(--i)*.45s)}
+.hb2 small{display:block;font-size:11px;font-weight:600;opacity:.6;margin-bottom:2px}
+.hb2::after{content:"";position:absolute;bottom:-6px;width:12px;height:12px;transform:rotate(45deg);border-radius:2px}
+.hb2-s{background:#fff;color:var(--ink);border-bottom-left-radius:5px;transform-origin:bottom left}
+.hb2-s::after{left:16px;background:#fff}
+.hb2-p{background:var(--accent);color:#1a1300;border-bottom-right-radius:5px;transform-origin:bottom right}
+.hb2-p::after{right:16px;background:var(--accent)}
+@keyframes hbpop{to{opacity:1;transform:none}}
+@keyframes hbfloat{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@media (max-width:1280px){.hb2:nth-child(n+5){display:none}}
+@media (max-width:1180px) and (min-width:721px){.hbub{position:relative;inset:auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:20px}.hb2{position:static}.hb2::after{display:none}}
+@media (max-width:720px){.hbub{position:relative;inset:auto;display:flex;flex-wrap:wrap;gap:8px 6px;justify-content:center;margin-bottom:18px}.hb2{position:static;font-size:13px;padding:8px 11px}.hb2:nth-child(n+5){display:none}.hb2::after{display:none}}
+@media (prefers-reduced-motion:reduce){.hb2{opacity:1;transform:none}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1191,7 +1207,7 @@ ul,ol{list-style:none}
   <section class="hero">
     <div class="wrap">
       <div class="gs">
-        <div class="stack reveal">
+        <div class="stack reveal"><div class="hbub" aria-hidden="true"><div class="hb2 hb2-s" style="left:calc(50% - 560px);top:6%;--i:0"><small>고2 학생</small>수행평가 주제 뭐 하지…</div><div class="hb2 hb2-p" style="left:calc(50% + 330px);top:2%;--i:1"><small>학부모</small>우리 애 세특, 이대로 괜찮을까요?</div><div class="hb2 hb2-s" style="left:calc(50% - 620px);top:44%;--i:2"><small>고1 학생</small>자료는 어디서 찾아야 돼?</div><div class="hb2 hb2-p" style="left:calc(50% + 360px);top:40%;--i:3"><small>학부모</small>진로랑 과목이 이어져야 한다는데…</div><div class="hb2 hb2-s" style="left:calc(50% - 560px);top:80%;--i:4"><small>고3 학생</small>보고서 다 썼는데 이게 맞나?</div><div class="hb2 hb2-s" style="left:calc(50% + 340px);top:78%;--i:5"><small>고2 학생</small>세특에 뭐라고 남겨야 하지?</div></div>
           <h1 class="big">Start<br />Tam-Q</h1>
           <img class="q3d" src="assets/hero-q.webp" alt="" />
           <span class="tag">탐구가 궁금할 땐!</span>
@@ -1315,22 +1331,24 @@ ul,ol{list-style:none}
     </div>
   </section>
 
-  <!-- EXPLORE : 2022 개정 교육과정 + 많이 찾는 탐구 주제 -->
-  <section class="explore" id="features">
-    <div class="wrap">
-      <div class="ex-head">
-        <div>
-          <span class="hash reveal"># 2022 개정 교육과정</span>
-          <h2 class="reveal">교육과정에서 시작하세요.<br /><em>요즘 학생들은 이런 질문을 탐구하고 있어요.</em></h2>
-        </div>
-        <div class="arrows reveal"><button id="rowPrev" aria-label="이전"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button><button id="rowNext" aria-label="다음"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button></div>
-      </div>
-      <div class="ex-filter reveal" id="exFilter" role="tablist"></div>
-      <div class="row shelf reveal" id="topicRow"></div>
+  <!-- EXPLORE (v3) : 2022 개정 교육과정 과목 흐름 + 지금 많이 찾는 탐구 주제 -->
+  <section class="wall" id="features">
+    <div class="wrap s-head">
+      <h2 class="reveal"><em>2022 개정 교육과정</em>의 과목과 단원에서<br />바로 탐구 주제를 찾습니다</h2>
     </div>
-    <div class="wall-mask ex-wall" aria-hidden="true">
+    <div class="wall-mask">
       <div class="wrow" id="wrow1"></div>
       <div class="wrow rev" id="wrow2"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="row-head reveal">
+        <h3>지금 많이 찾는 <em>탐구 주제</em></h3>
+        <div class="arrows"><button id="rowPrev" aria-label="이전"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button><button id="rowNext" aria-label="다음"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button></div>
+      </div>
+      <div class="row shelf reveal" id="topicRow"></div>
     </div>
   </section>
 
@@ -1578,17 +1596,6 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   const step = () => row.querySelector('.tcard').getBoundingClientRect().width + 18;
   $('#rowPrev').onclick = () => row.scrollBy({ left: -step() });
   $('#rowNext').onclick = () => row.scrollBy({ left: step() });
-})();
-
-// Explore filter
-(() => {
-  const subs = ['전체', '수학', '과학', '사회', '정보'], box = $('#exFilter'), row = $('#topicRow');
-  box.innerHTML = subs.map((x, i) => `<button class="${i ? '' : 'on'}" role="tab" aria-selected="${!i}" data-f="${x}">${x}</button>`).join('');
-  box.querySelectorAll('button').forEach((b) => b.onclick = () => {
-    box.querySelectorAll('button').forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
-    row.querySelectorAll('.book-card').forEach((c) => { c.style.display = (b.dataset.f === '전체' || c.dataset.subj === b.dataset.f) ? '' : 'none'; });
-    row.scrollLeft = 0;
-  });
 })();
 
 // Coverflow with counter / progress / pause
