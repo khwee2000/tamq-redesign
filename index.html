@@ -1181,6 +1181,59 @@ ul,ol{list-style:none}
 
 @media (max-width:720px){.sqrow{margin:0 -16px -40px;padding:30px 16px 70px!important}}
 
+.wall .s-head h2{margin-top:14px}
+.wall .s-head h2 em{font-size:.72em;font-weight:600;color:var(--brand)}
+
+.sq{border:0!important;box-shadow:0 12px 34px -18px rgba(15,20,48,.2)}
+.sq.on{box-shadow:0 30px 60px -26px rgba(27,66,152,.32)}
+.sq-art{display:flex;align-items:center;justify-content:center}
+.sq-art svg{max-width:240px;height:100%}
+
+/* ---------- toss features: sticky left + bigger mockups ---------- */
+.tf-body{margin-top:0!important;grid-template-columns:1fr 1.25fr!important;gap:64px!important;align-items:start}
+.tf-side{align-self:stretch}
+.tf-stick{position:sticky;top:120px}
+.tf-stick h2{font-size:clamp(32px,3.4vw,44px);font-weight:700;letter-spacing:-.045em;line-height:1.32;margin-top:14px;color:#191f28}
+.tf-stick .tf-lead{margin-top:18px}
+.tf-nav{margin-top:44px;display:grid;gap:4px;border-left:2px solid #e5e8eb}
+.tf-nav button{display:flex;gap:12px;align-items:center;text-align:left;padding:10px 0 10px 18px;margin-left:-2px;border-left:2px solid transparent;font-size:17px;font-weight:600;color:#b0b8c1;transition:color .3s,border-color .3s}
+.tf-nav button span{font-size:13px;font-variant-numeric:tabular-nums}
+.tf-nav button:hover{color:#4e5968}
+.tf-nav button.on{color:#191f28;border-left-color:#3182f6}
+.tf-nav button.on span{color:#3182f6}
+.tf-item{margin-bottom:120px!important}
+.tf-item:first-child{border-top:0;padding-top:0}
+.tf-panel{height:480px!important}
+.tm{width:400px!important;padding:26px 26px 22px!important;border-radius:22px!important}
+.tm small{font-size:13px!important}
+.tm-h{font-size:21px!important;margin:6px 0 14px!important}
+.tm-row{font-size:15px!important;padding:13px 14px!important}
+.tm-row i{width:24px!important;height:24px!important}
+.tm2 p{font-size:16px!important}
+.tm-tip{font-size:14px!important;padding:14px 16px!important}
+.tm-tip b{font-size:14px!important}
+.tm-big{font-size:38px!important}
+.tm-sub{font-size:14px!important}
+.tm3b{padding:16px 22px!important}
+.tm3b b{font-size:16px!important}
+.tm-t{width:120px!important;height:120px!important;border-radius:26px!important}
+.tm-t b{font-size:16px!important}
+.tm-t small{font-size:12.5px!important}
+.tm-t.on{width:140px!important;height:140px!important}
+.tm-t.on b{font-size:18px!important}
+.tm4b{width:auto!important;padding:14px 28px!important}
+.tm4b b{font-size:17px!important}
+@media (max-width:960px){.tf-body{grid-template-columns:1fr!important;gap:48px!important}.tf-stick{position:static}.tf-nav{display:none}.tf-item:first-child{padding-top:0}}
+@media (max-width:620px){.tf-panel{height:360px!important}.tm{width:290px!important;padding:20px!important}.tm-h{font-size:17px!important}.tm-row,.tm2 p{font-size:13.5px!important}.tm-big{font-size:30px!important}.tm-t{width:82px!important;height:82px!important}.tm-t.on{width:96px!important;height:96px!important}.tm-t b{font-size:13px!important}}
+
+/* square row: full-bleed, no hard clip at content edge */
+.sqrow{position:relative;margin:0 calc(50% - 50vw) -40px!important;padding:30px max(24px,calc(50vw - 600px + 24px)) 70px!important;scroll-padding-left:max(24px,calc(50vw - 600px + 24px))}
+.sqrow::after{content:"";flex:0 0 1px}
+@media (max-width:720px){.sqrow{padding:30px 16px 70px!important;scroll-padding-left:16px}}
+
+.sq-art img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(15,20,48,.12));transition:transform .4s var(--ease)}
+.sq:hover .sq-art img,.sq.on .sq-art img{transform:translateY(-4px) scale(1.04)}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1322,12 +1375,13 @@ ul,ol{list-style:none}
   <!-- WHAT : 핵심 기능 (Toss service page style) -->
   <section class="tf" id="service">
     <div class="wrap">
-      <div class="tf-head">
-        <div><p class="tf-eye reveal">핵심 기능</p><h2 class="reveal">수행평가부터 입시까지,<br />TAM-Q의 핵심 기능</h2></div>
-        <p class="tf-lead reveal">탐구보고서의 과정이 세특과 입시 준비의 근거로<br />자연스럽게 이어지도록 단계마다 함께해요.</p>
-      </div>
       <div class="tf-body">
-        <div class="tf-side"><span class="tf-pill" id="tfPill">01</span></div>
+        <div class="tf-side"><div class="tf-stick">
+          <p class="tf-eye">핵심 기능</p>
+          <h2>수행평가부터 입시까지,<br />TAM-Q의 핵심 기능</h2>
+          <p class="tf-lead">탐구보고서의 과정이 세특과 입시 준비의 근거로<br />자연스럽게 이어지도록 단계마다 함께해요.</p>
+          <div class="tf-nav" id="tfNav"><button class="on" data-k="0"><span>01</span>탐구 프로젝트</button><button data-k="1"><span>02</span>보고서 첨삭</button><button data-k="2"><span>03</span>세특 점수 평가</button><button data-k="3"><span>04</span>진로 로드맵</button></div>
+        </div></div>
         <div class="tf-list"><article class="tf-item" data-k="0"><h3>막막한 관심사를 주제로 바꿔주는 '탐구 프로젝트'</h3><p>교과와 단원을 고르면 진로와 이어지는 탐구 주제를 추천해요.<br />참고자료 탐색부터 PDF 완성까지 한 흐름으로 이어갈 수 있어요.</p><div class="tf-panel"><div class="tm tm1"><small>미적분Ⅰ · 미분</small><b class="tm-h">추천 탐구 주제 5개</b>
 <div class="tm-row on"><span>미분을 활용한 포장재 부피 최적화</span><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5l2.5 2.5 5.5-6"/></svg></i></div>
 <div class="tm-row"><span>스포츠 탄도 궤적과 최적 투사 각도</span></div>
@@ -1344,7 +1398,8 @@ ul,ol{list-style:none}
   <!-- EXPLORE (v3) : 2022 개정 교육과정 과목 흐름 + 지금 많이 찾는 탐구 주제 -->
   <section class="wall" id="features">
     <div class="wrap s-head">
-      <h2 class="reveal"><em>2022 개정 교육과정</em>의 과목과 단원에서<br />바로 탐구 주제를 찾습니다</h2>
+      <span class="hash reveal"># 2022 개정 교육과정</span>
+      <h2 class="reveal">교육과정에서 시작하세요.<br /><em>요즘 학생들은 이런 질문을 탐구하고 있어요.</em></h2>
     </div>
     <div class="wall-mask">
       <div class="wrow" id="wrow1"></div>
@@ -1355,7 +1410,7 @@ ul,ol{list-style:none}
   <section class="sec">
     <div class="wrap">
       <div class="row-head reveal">
-        <h3>지금 많이 찾는 <em>탐구 주제</em></h3>
+        <span></span>
         <div class="arrows"><button id="rowPrev" aria-label="이전"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button><button id="rowNext" aria-label="다음"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button></div>
       </div>
       <div class="row sqrow reveal" id="topicRow"></div>
@@ -1558,7 +1613,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
       leaf: `<path d="M90 92C40 80 36 30 92 8c40 30 34 72-2 84z" fill="url(#g${k}${c.slice(1)})" stroke="${c}" stroke-opacity=".55"/><path d="M90 92C88 64 90 36 92 12" fill="none" stroke="${c}" stroke-opacity=".6"/>${[30,46,62].map((y)=>`<path d="M90 ${y+8}l-18 -10M91 ${y}l16 -9" stroke="${c}" stroke-opacity=".4"/>`).join('')}`,
       bars: `${grid}${[[14,62],[40,48],[66,36],[92,28],[118,34],[144,50]].map(([x,y])=>`<rect x="${x}" y="${y}" width="16" height="${96-y}" rx="2" fill="${c}" fill-opacity=".16"/>`).join('')}<path d="M8 76C50 40 90 22 126 30s40 30 48 40" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="100" cy="24" r="3.2" fill="#fff" stroke="${c}" stroke-width="1.6"/>`,
     };
-    return `<svg viewBox="0 0 180 96" preserveAspectRatio="none">${g}${A[k]}</svg>`;
+    return `<svg viewBox="0 0 180 96" preserveAspectRatio="xMidYMid meet">${g}${A[k]}</svg>`;
   };
   const cover = (b) => {
     const img = `<img src="assets/${b.img}.webp" alt="" loading="lazy">`;
@@ -1579,7 +1634,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
       <div class="sq-top"><span class="sq-dot"></span><b>${b.tab}</b><em>2026학년도</em></div>
       <h4>${b.title}</h4>
       <p>${SQ[b.art].d}</p>
-      <div class="sq-art">${rrArt(b.art, b.rc)}</div>
+      <div class="sq-art"><img src="assets/sq-${b.art}.webp" alt="" loading="lazy"></div>
       <div class="sq-foot"><span class="sq-tags">${SQ[b.art].t.map((x) => `<i>${x}</i>`).join('')}</span><span class="sq-go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
     </a>`).join('');
 })();
@@ -1614,7 +1669,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
     cards.forEach((c, i) => c.classList.toggle('on', i === k));
     num.innerHTML = `<b>${k + 1}</b> / ${cards.length}`;
     $('#rowPrev').disabled = k === 0; $('#rowNext').disabled = k === cards.length - 1;
-    if (scroll) row.scrollTo({ left: cards[k].offsetLeft - row.offsetLeft - (k ? 40 : 0), behavior: 'smooth' });
+    if (scroll) row.scrollTo({ left: cards[k].offsetLeft - parseFloat(getComputedStyle(row).paddingLeft), behavior: 'smooth' });
   };
   $('#rowPrev').onclick = () => go(k - 1); $('#rowNext').onclick = () => go(k + 1);
   cards.forEach((c, i) => c.addEventListener('mouseenter', () => go(i, false)));
@@ -1661,13 +1716,15 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   go(0);
 })();
 
-// Toss-style feature number pill
+// Toss-style feature nav follows scroll
 (() => {
-  const pill = $('#tfPill'); if (!pill) return;
-  const o = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) pill.textContent = String(+e.target.dataset.k + 1).padStart(2, '0'); }), { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('.tf-item').forEach((x) => o.observe(x));
+  const nav = document.querySelectorAll('#tfNav button'), items = [...document.querySelectorAll('.tf-item')];
+  if (!nav.length) return;
+  const set = (k) => nav.forEach((b, i) => b.classList.toggle('on', i === k));
+  const o = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) set(+e.target.dataset.k); }), { rootMargin: '-45% 0px -50% 0px' });
+  items.forEach((x) => o.observe(x));
+  nav.forEach((b, i) => b.onclick = () => items[i].scrollIntoView({ behavior: 'smooth', block: 'center' }));
 })();
-
 // FAQ
 (() => {
   const faq = [
