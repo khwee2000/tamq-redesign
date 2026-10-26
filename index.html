@@ -449,6 +449,60 @@ ul,ol{list-style:none}
 .hd.scrolled .wrap{height:58px;padding:0 10px 0 22px}
 @media (max-width:720px){.hd .wrap{height:60px;padding:0 16px}.hd.scrolled{top:10px!important;width:calc(100% - 20px)}.hd.scrolled .wrap{height:52px;padding:0 8px 0 16px}}
 
+/* ---------- hero lead ---------- */
+.hero .gs p.hero-lead{max-width:640px;margin-left:auto;margin-right:auto;line-height:1.75;opacity:.92}
+.hero .gs p.hero-lead b{display:inline-block;font-size:19px;font-weight:700;margin-bottom:4px;opacity:1}
+
+/* ---------- pains (원래 사이트 THE CHALLENGE) ---------- */
+.pains-wrap{text-align:center;margin-bottom:88px}
+.pains-title{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.04em;margin-top:14px}
+.pains{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:36px}
+.pain{flex:0 1 380px;padding:28px 30px;border-radius:20px;background:var(--bg-soft);text-align:left;font-size:18px;font-weight:600;line-height:1.55;letter-spacing:-.03em}
+.pain small{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-bottom:10px}
+.pain-plus{width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);display:grid;place-items:center;color:var(--ink-3);font-size:18px;flex:none}
+.big-sub.not-ghost{max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;color:var(--ink-2)}
+.big-sub.not-ghost b{color:var(--ink)}
+
+/* ---------- features with real screenshots ---------- */
+.fx{padding:120px 0 40px;background:var(--bg-soft);margin-top:120px}
+.fx .s-head{margin-bottom:24px}
+.fx-row{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center;padding:56px 0}
+.fx-row+.fx-row{border-top:1px solid var(--line)}
+.fx-row.flip{grid-template-columns:7fr 5fr}
+.fx-row.flip .fx-copy{order:2}
+.fx-tag{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--brand);margin-bottom:12px}
+.fx-tag span{color:var(--ink-3);font-weight:600}
+.fx-copy h3{font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:-.035em}
+.fx-copy p{color:var(--ink-2);margin-top:12px;line-height:1.7}
+.fx-checks{margin-top:24px;display:grid;gap:12px}
+.fx-checks li{display:flex;gap:12px;font-size:16px}
+.fx-checks svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--brand)}
+.fx-link{display:inline-flex;align-items:center;gap:6px;margin-top:26px;font-size:15px;font-weight:700}
+.fx-link svg{width:14px;height:14px;transition:transform .2s var(--ease)}
+.fx-link:hover svg{transform:translateX(3px)}
+.fx-media{position:relative;padding-bottom:28px}
+.fx-shot{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 1px 0 rgba(15,20,48,.04),0 24px 56px -24px rgba(15,20,48,.28);transition:transform .5s var(--ease)}
+.fx-media:hover .fx-shot{transform:translateY(-4px)}
+.fx-bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-bottom:1px solid var(--line);background:#fbfbfc}
+.fx-bar span{width:9px;height:9px;border-radius:50%;background:#dfe3ea}
+.fx-bar em{margin-left:8px;font-style:normal;font-size:12px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fx-sub{position:absolute;left:-28px;bottom:-8px;width:44%;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 18px 40px -16px rgba(15,20,48,.35)}
+.fx-row.flip .fx-sub{left:auto;right:-28px}
+.ft-tag{margin:-6px 0 14px;color:rgba(255,255,255,.75)}
+
+/* ---------- navbar: white glass pill on scroll ---------- */
+.hd.scrolled{background:rgba(255,255,255,.88)!important;border-color:rgba(15,20,48,.08)!important;box-shadow:0 10px 30px -12px rgba(15,20,48,.22)!important;color:var(--ink)}
+.hd.scrolled .logo{color:var(--ink)}
+.hd.scrolled .logo img{box-shadow:0 0 0 1px var(--line)}
+.hd.scrolled .gnb{color:var(--ink-2)}
+.hd.scrolled .gnb a:hover{color:var(--ink)}
+.hd.scrolled .hd-right .login{background:var(--bg-sunk);color:var(--ink)}
+.hd.scrolled .hd-right .login:hover{background:var(--line)}
+.hd.scrolled .hd-right .start{background:var(--grad);color:#fff}
+
+@media (max-width:960px){.fx-row,.fx-row.flip{grid-template-columns:1fr;gap:36px}.fx-row.flip .fx-copy{order:0}.fx-sub,.fx-row.flip .fx-sub{left:auto;right:-8px;width:46%}}
+@media (max-width:720px){.pains{flex-direction:column}.pain{flex-basis:auto;width:100%;font-size:17px;padding:22px}.fx{padding:80px 0 20px;margin-top:80px}.fx-row{padding:40px 0}.fx-sub{display:none}.pains-wrap{margin-bottom:64px}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -531,7 +585,7 @@ ul,ol{list-style:none}
   <div class="wrap">
     <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-q.png" alt="" />Tam-Q</a>
     <nav class="gnb" aria-label="주요 메뉴">
-      <a href="#features">서비스</a>
+      <a href="#service">서비스</a>
       <a href="#features">탐구 주제</a>
       <a href="#pricing">가격 정책</a>
       <a href="#faq">FAQ</a>
@@ -553,7 +607,7 @@ ul,ol{list-style:none}
           <img class="q3d" src="assets/hero-q.webp" alt="" />
           <span class="tag">탐구가 궁금할 땐!</span>
         </div>
-        <p class="reveal" style="--d:.08s">수행평가의 질문을 입시에 남을 기록으로. 지금 바로 첫 탐구를 시작해 보세요.</p>
+        <p class="reveal hero-lead" style="--d:.08s"><b>수행평가의 질문을, 입시에 남을 기록으로.</b><br />한 번의 관심이 탐구보고서가 되고, 그 과정이 세특과 입시의 근거로 이어지도록 TAM-Q가 모든 단계를 연결합니다.</p>
         <a class="pill-btn white reveal" style="--d:.14s" href="https://tamq.co.kr/home">시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
@@ -622,14 +676,86 @@ ul,ol{list-style:none}
   <!-- PRINCIPLES : image cards -->
   <section class="sec" style="padding-top:120px">
     <div class="wrap">
+      <div class="pains-wrap">
+        <span class="hash reveal"># 이런 고민</span>
+        <h2 class="pains-title reveal">수행평가와 세특, 아직도 각 단계마다 헤매고 있나요?</h2>
+        <div class="pains">
+          <div class="pain reveal"><small>시작할 때</small>수행평가 주제와 자료를 찾느라<br />시작부터 지치는 탐구</div>
+          <span class="pain-plus reveal" aria-hidden="true">+</span>
+          <div class="pain reveal" style="--d:.08s"><small>끝낸 뒤에</small>탐구보고서와 세특이 따로 놀아<br />입시에 남지 않는 기록</div>
+        </div>
+      </div>
       <div class="dots3 reveal"><i></i><i></i><i></i></div>
       <h2 class="big-title reveal">수행평가에서 끝나는 탐구가 아니라<br /><b>세특과 입시까지 이어지는 기록</b></h2>
-      <p class="big-sub reveal">흩어진 탐구 과정을 한 편의 성장 기록으로</p>
+      <p class="big-sub reveal not-ghost"><b>TAM-Q는 결과만 대신 써주는 도구가 아닙니다.</b><br />학생의 관심이 수행평가의 질문이 되고, 탐구보고서의 과정이 세특에 남으며, 그 기록이 입시 경쟁력으로 이어지도록 단계마다 함께합니다.</p>
       <div class="ocards">
         <article class="ocard reveal"><div class="ph"><img src="assets/rv-1.webp" alt="" loading="lazy" /></div><div class="body"><h3>질문에서 시작</h3><p>무엇을 쓸지 막막한 순간, 과목과 관심사를 탐구 가능한 질문으로 바꿉니다.</p></div></article>
         <article class="ocard reveal" style="--d:.08s"><div class="ph"><img src="assets/rv-3.webp" alt="" loading="lazy" /></div><div class="body"><h3>한 흐름으로 연결</h3><p>주제, 자료, 보고서, 세특을 오가도 다시 입력할 필요 없이 맥락이 이어집니다.</p></div></article>
         <article class="ocard reveal" style="--d:.16s"><div class="ph"><img src="assets/rv-2.webp" alt="" loading="lazy" /></div><div class="body"><h3>근거 있는 피드백</h3><p>막연한 칭찬 대신 평가 기준에 맞춘 점수와 다음 수정 방향을 알려 드립니다.</p></div></article>
       </div>
+    </div>
+  </section>
+
+  <!-- FEATURES with real app screenshots (원래 사이트 기능 설명 + 실제 화면) -->
+  <section class="fx" id="service">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="hash reveal"># 핵심 기능</span>
+        <h2 class="reveal">수행평가부터 입시까지 잇는<br /><em>TAM-Q의 핵심 기능</em></h2>
+        <p class="reveal">탐구보고서의 과정이 세특과 입시 준비의 근거로 자연스럽게 이어집니다.</p>
+      </div>
+        <article class="fx-row">
+          <div class="fx-copy reveal">
+            <div class="fx-tag"><span>01</span>PROJECT</div>
+            <h3>탐구 프로젝트</h3>
+            <p>과목과 관심 분야를 탐구 주제로 구체화하고, 참고자료 탐색부터 보고서 완성까지 한 흐름으로 이어갑니다.</p>
+            <ul class="fx-checks"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>교과·단원 기반 맞춤 주제 추천</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>탐구에 바로 활용하는 참고자료 연결</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>주제부터 PDF까지 이어지는 5단계 워크플로우</li></ul>
+            <a class="fx-link" href="https://tamq.co.kr/home">프로젝트 시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="fx-media reveal" style="--d:.1s">
+            <div class="fx-shot"><div class="fx-bar"><span></span><span></span><span></span><em>교과·단원 입력 → 맞춤 탐구 주제 추천</em></div><img src="assets/project-topic.webp" width="1920" height="1200" alt="TAM-Q 탐구 프로젝트 실제 화면" loading="lazy" /></div>
+            
+          </div>
+        </article>
+        <article class="fx-row flip">
+          <div class="fx-copy reveal">
+            <div class="fx-tag"><span>02</span>REPORT REVIEW</div>
+            <h3>보고서 첨삭</h3>
+            <p>작성한 탐구보고서를 평가 기준에 따라 분석하고, 문장별 피드백과 구체적인 개선 방향을 제공합니다.</p>
+            <ul class="fx-checks"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>동기·과정·성취·발전 구조 분석</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>논리 공백과 보완 참고자료 제안</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>원문에 바로 적용할 수 있는 수정 예시</li></ul>
+            <a class="fx-link" href="https://tamq.co.kr/sespec">보고서 첨삭 받기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="fx-media reveal" style="--d:.1s">
+            <div class="fx-shot"><div class="fx-bar"><span></span><span></span><span></span><em>동기·과정·성취·발전 구조 분석</em></div><img src="assets/review-structure.webp" width="1920" height="1200" alt="TAM-Q 보고서 첨삭 실제 화면" loading="lazy" /></div>
+            <div class="fx-sub"><img src="assets/review-detail.webp" alt="" loading="lazy" /></div>
+          </div>
+        </article>
+        <article class="fx-row">
+          <div class="fx-copy reveal">
+            <div class="fx-tag"><span>03</span>EVALUATION</div>
+            <h3>세특 점수 평가</h3>
+            <p>생활기록부 세특을 항목별로 진단해 점수와 강점, 보완해야 할 내용을 한눈에 확인합니다.</p>
+            <ul class="fx-checks"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>학업·진로·공동체 역량별 정밀 진단</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>목표 대학군 참고 점수 비교</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>강점과 수정 방향을 담은 상세 리포트</li></ul>
+            <a class="fx-link" href="https://tamq.co.kr/score">세특 평가하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="fx-media reveal" style="--d:.1s">
+            <div class="fx-shot"><div class="fx-bar"><span></span><span></span><span></span><em>세특 종합 점수와 역량별 진단</em></div><img src="assets/score-summary.webp" width="1920" height="1200" alt="TAM-Q 세특 점수 평가 실제 화면" loading="lazy" /></div>
+            <div class="fx-sub"><img src="assets/score-benchmark.webp" alt="" loading="lazy" /></div>
+          </div>
+        </article>
+        <article class="fx-row flip">
+          <div class="fx-copy reveal">
+            <div class="fx-tag"><span>04</span>ROADMAP</div>
+            <h3>진로 로드맵</h3>
+            <p>학생의 핵심 가치와 희망 진로를 바탕으로 교과 선택, 탐구 활동, 학업 전략을 연결해 설계합니다.</p>
+            <ul class="fx-checks"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>희망 진로와 연결되는 과목 설계</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>학년별 세특·탐구 활동 전략</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5l3 3 7-7"/></svg>과목별 맞춤 주제와 전략 코멘트</li></ul>
+            <a class="fx-link" href="https://tamq.co.kr/roadmap">로드맵 그리기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="fx-media reveal" style="--d:.1s">
+            <div class="fx-shot"><div class="fx-bar"><span></span><span></span><span></span><em>희망 진로 기반 선택 과목 설계</em></div><img src="assets/roadmap-builder.webp" width="1920" height="1200" alt="TAM-Q 진로 로드맵 실제 화면" loading="lazy" /></div>
+            <div class="fx-sub"><img src="assets/roadmap-results.webp" alt="" loading="lazy" /></div>
+          </div>
+        </article>
     </div>
   </section>
 
@@ -730,6 +856,7 @@ ul,ol{list-style:none}
 <footer class="ft">
   <div class="wrap">
     <h3>솔리온 (Solion)</h3>
+    <p class="ft-tag">고등학생의 세특과 탐구보고서를 위한 AI 교육도우미, TAM-Q입니다.</p>
     <p class="info">대표 : 정영훈, 양동균<i></i>사업자등록번호 : 185-79-00549<br />주소 : 서울 동대문구 회기로 111 307호<i></i>전화 : 010-2504-1147, 010-2141-3739<i></i>메일 : yangcode1210@gmail.com</p>
     <div class="ft-bottom">
       <div class="ft-btns">
