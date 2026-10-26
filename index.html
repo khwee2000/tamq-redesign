@@ -441,11 +441,13 @@ ul,ol{list-style:none}
 .cv-note .pin::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--accent);transform:translateX(-50%);box-shadow:0 2px 3px rgba(0,0,0,.3)}
 @media (max-width:720px){.cv{height:264px}.sheet{padding-top:40px}.sheet img{height:72px}.cv-note .lines b{font-size:15px}}
 
-/* ---------- pill navbar ---------- */
-.hd{top:14px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(1200px,calc(100% - 32px));border-radius:999px;background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.18);backdrop-filter:saturate(1.4) blur(12px)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px)!important}
-.hd.scrolled{background:rgba(27,66,152,.92)!important;border-color:rgba(255,255,255,.12);box-shadow:0 12px 32px -10px rgba(11,31,92,.5)}
-.hd .wrap{height:58px;max-width:none;padding:0 10px 0 22px}
-@media (max-width:720px){.hd{top:10px!important;width:calc(100% - 20px)}.hd .wrap{height:52px;padding:0 8px 0 16px}}
+/* ---------- navbar: full-width at top, pill on scroll ---------- */
+.hd{top:0!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:100%;border-radius:0;background:transparent!important;border:1px solid transparent;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  transition:top .45s var(--ease),width .45s var(--ease),border-radius .45s var(--ease),background-color .3s,border-color .3s,box-shadow .3s}
+.hd .wrap{height:64px;max-width:1400px;padding:0 24px;transition:height .45s var(--ease),padding .45s var(--ease)}
+.hd.scrolled{top:14px!important;width:min(1200px,calc(100% - 32px));border-radius:999px;background:rgba(27,66,152,.92)!important;border-color:rgba(255,255,255,.14);backdrop-filter:saturate(1.4) blur(12px)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px)!important;box-shadow:0 12px 32px -10px rgba(11,31,92,.5)}
+.hd.scrolled .wrap{height:58px;padding:0 10px 0 22px}
+@media (max-width:720px){.hd .wrap{height:60px;padding:0 16px}.hd.scrolled{top:10px!important;width:calc(100% - 20px)}.hd.scrolled .wrap{height:52px;padding:0 8px 0 16px}}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
