@@ -571,6 +571,22 @@ ul,ol{list-style:none}
 @media (max-width:1024px){.wf .wrap{grid-template-columns:1fr}.wf-l{position:static}.wf-ws{display:none}.wf-r li{min-height:auto;padding:40px 0;opacity:1}}
 @media (max-width:720px){.wf{padding:96px 0;margin-top:80px}}
 
+/* ---------- research report covers ---------- */
+.rr{position:relative;height:300px;padding:48px 20px 18px;border-radius:3px 6px 6px 3px;background:linear-gradient(160deg,#fff 0%,#fbfcfe 60%,color-mix(in srgb,var(--rc) 5%,#fff) 100%);display:flex;flex-direction:column;
+  box-shadow:2px 0 0 #fff,3px 1px 0 #e6e8ee,5px 2px 0 #fff,6px 3px 0 #dfe2e9,8px 4px 0 #fff,9px 5px 0 #d8dce4,0 20px 30px -16px rgba(15,20,48,.32),0 2px 6px rgba(15,20,48,.06);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.rr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(90deg,rgba(15,20,48,.07),transparent)}
+.book-card:hover .rr{transform:translateY(-6px) rotate(-1deg)}
+.rr-top{display:flex;justify-content:space-between;font-size:8.5px;font-weight:700;letter-spacing:.06em;line-height:1.35;color:#3a4256}
+.rr-top span:last-child{font-weight:500;color:var(--ink-3)}
+.rr h4{margin-top:16px;font-size:18px;font-weight:800;line-height:1.38;letter-spacing:-.045em;color:var(--ink)}
+.rr-bar{display:block;width:22px;height:3px;border-radius:2px;background:var(--rc);margin-top:14px}
+.rr-art{flex:1;margin:10px -4px 8px;min-height:0}
+.rr-art svg{width:100%;height:100%;display:block;overflow:visible}
+.rr-bot{display:flex;justify-content:space-between;align-items:flex-end;font-size:7.5px;line-height:1.45;color:#5b6378;letter-spacing:.04em}
+.rr-bot span:last-child{text-align:right;letter-spacing:0;font-size:8.5px}
+@media (max-width:720px){.rr{height:264px;padding:46px 16px 14px}.rr h4{font-size:16px;margin-top:12px}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -940,15 +956,28 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
     { tab: '세특 점수 평가', sub: '세특 평가', title: '내 세특, 목표 대학군 기준으로 몇 점?', meta: '3개 역량 진단 · 역량별 리포트', img: 'iso-score', c: '#0f5e66', art: 1, href: 'https://tamq.co.kr/score' },
     { tab: '진로 로드맵', sub: '진로 로드맵', title: '희망 진로에서 거꾸로 짜는 과목 설계', meta: '학년별 전략 · 과목 설계', img: 'iso-roadmap', c: '#4a3a8f', art: 1, href: 'https://tamq.co.kr/roadmap' },
     { tab: '이용권', sub: '이용권', title: '세특 평가만 필요할 때 가볍게', meta: '5회부터 · 5,000원~', img: 'ic-pricing', c: '#8a5a10', art: 2, href: '#pricing' },
-    { tab: '미적분', sub: '수학 · 미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '인기 탐구 주제', img: 'topic-box', c: '#1b4298', kind: 'polaroid', href: 'https://tamq.co.kr/home' },
-    { tab: '미적분', sub: '수학 · 미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '인기 탐구 주제', img: 'topic-ball', c: '#1b4298', kind: 'photo', href: 'https://tamq.co.kr/home' },
-    { tab: '화학', sub: '과학 · 화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '인기 탐구 주제', img: 'topic-lab', c: '#0f5e66', kind: 'report', href: 'https://tamq.co.kr/home' },
-    { tab: '미적분', sub: '수학 · 미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '인기 탐구 주제', img: 'topic-city', c: '#1b4298', kind: 'duo', href: 'https://tamq.co.kr/home' },
-    { tab: '경제', sub: '사회 · 경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '인기 탐구 주제', img: 'topic-data', c: '#8a5a10', kind: 'note', href: 'https://tamq.co.kr/home' },
+    { tab: '미적분', sub: '수학 · 미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '인기 탐구 주제', img: 'topic-box', c: '#1b4298', kind: 'rr', rc: '#3b6fe0', art: 'opt', en: 'MATHEMATICS<br>CALCULUS', short: '미분을 활용한<br>포장재 부피<br>최적화 전략', href: 'https://tamq.co.kr/home' },
+    { tab: '미적분', sub: '수학 · 미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '인기 탐구 주제', img: 'topic-ball', c: '#1b4298', kind: 'rr', rc: '#3b6fe0', art: 'arc', en: 'MATHEMATICS<br>PHYSICS LINK', short: '스포츠 탄도 궤적과<br>최적 투사 각도<br>탐구', href: 'https://tamq.co.kr/home' },
+    { tab: '화학', sub: '과학 · 화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '인기 탐구 주제', img: 'topic-lab', c: '#0f5e66', kind: 'rr', rc: '#2f9a74', art: 'mol', en: 'CHEMISTRY<br>REACTION KINETICS', short: '반응 속도를<br>바꾸는 조건<br>실험 설계', href: 'https://tamq.co.kr/home' },
+    { tab: '미적분', sub: '수학 · 미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '인기 탐구 주제', img: 'topic-city', c: '#1b4298', kind: 'rr', rc: '#5b5bd6', art: 'path', en: 'MATHEMATICS<br>MOBILITY · AI', short: '자율주행차<br>곡선 주행 경로<br>예측과 미분', href: 'https://tamq.co.kr/home' },
+    { tab: '경제', sub: '사회 · 경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '인기 탐구 주제', img: 'topic-data', c: '#8a5a10', kind: 'rr', rc: '#e08a2c', art: 'bars', en: 'ECONOMICS<br>MICROECONOMICS', short: '한계비용과<br>한계수익으로 본<br>이윤 극대화', href: 'https://tamq.co.kr/home' },
   ];
+  const rrArt = (k, c) => {
+    const g = `<defs><linearGradient id="g${k}${c.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".28"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>`;
+    const grid = [20,40,60,80].map((y) => `<line x1="0" y1="${y}" x2="180" y2="${y}" stroke="${c}" stroke-opacity=".08"/>`).join('');
+    const A = {
+      opt: `<path d="M4 88C30 86 46 30 74 22s40 40 62 44 30-30 40-34V96H4z" fill="url(#g${k}${c.slice(1)})"/><path d="M4 88C30 86 46 30 74 22s40 40 62 44 30-30 40-34" fill="none" stroke="${c}" stroke-width="1.6"/>${[[4,88],[40,48],[74,22],[110,58],[136,66],[176,32]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#fff" stroke="${c}" stroke-width="1.4"/>`).join('')}<line x1="74" y1="22" x2="74" y2="96" stroke="${c}" stroke-dasharray="2 3" stroke-opacity=".5"/>`,
+      arc: `<path d="M6 92Q92 -30 176 92" fill="url(#g${k}${c.slice(1)})"/><path d="M6 92Q92 -30 176 92" fill="none" stroke="${c}" stroke-width="1.6" stroke-dasharray="3 4"/><circle cx="91" cy="31" r="4" fill="${c}"/><path d="M6 92l18-26" stroke="${c}" stroke-opacity=".5"/><path d="M18 92a14 14 0 0 1 8-12" fill="none" stroke="${c}" stroke-opacity=".6"/>`,
+      mol: `${[[90,52,30],[90,52,46],[90,52,62]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${c}" stroke-opacity=".18"/>`).join('')}<circle cx="90" cy="52" r="20" fill="url(#g${k}${c.slice(1)})" stroke="${c}" stroke-opacity=".5"/>${[[60,30],[124,34],[118,80],[58,76]].map(([x,y])=>`<line x1="90" y1="52" x2="${x}" y2="${y}" stroke="${c}" stroke-opacity=".45"/><circle cx="${x}" cy="${y}" r="5" fill="#fff" stroke="${c}" stroke-width="1.4"/>`).join('')}`,
+      path: `${grid}<path d="M6 84C40 84 50 40 86 40s40 34 60 30 22-34 28-48" fill="none" stroke="${c}" stroke-opacity=".15" stroke-width="14" stroke-linecap="round"/><path d="M6 84C40 84 50 40 86 40s40 34 60 30 22-34 28-48" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="6" cy="84" r="3" fill="${c}"/><path d="M168 16l8 6-9 3z" fill="${c}"/>`,
+      bars: `${grid}${[[14,62],[40,48],[66,36],[92,28],[118,34],[144,50]].map(([x,y])=>`<rect x="${x}" y="${y}" width="16" height="${96-y}" rx="2" fill="${c}" fill-opacity=".16"/>`).join('')}<path d="M8 76C50 40 90 22 126 30s40 30 48 40" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="100" cy="24" r="3.2" fill="#fff" stroke="${c}" stroke-width="1.6"/>`,
+    };
+    return `<svg viewBox="0 0 180 96" preserveAspectRatio="none">${g}${A[k]}</svg>`;
+  };
   const cover = (b) => {
     const img = `<img src="assets/${b.img}.webp" alt="" loading="lazy">`;
     switch (b.kind) {
+      case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span>TAM-Q<br>RESEARCH REPORT</span><span>2026</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><div class="rr-bot"><span>${b.en}</span><span>고등학교 2학년<br>탐구보고서</span></div></div>`;
       case 'polaroid': return `<div class="cv cv-polaroid"><div class="pol"><span class="tape"></span>${img}<em>#${b.tab}</em></div></div>`;
       case 'photo': return `<div class="cv cv-photo">${img}<svg class="arc" viewBox="0 0 228 300" preserveAspectRatio="none"><path d="M10 250C70 60 160 50 220 210" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 6"/><circle cx="118" cy="98" r="4" fill="#f7a007"/></svg><div class="cap"><small>인기 탐구 주제</small><b>${b.sub}</b></div></div>`;
       case 'report': return `<div class="cv cv-report"><div class="sheet"><small>탐구보고서</small><div class="ttl"><i></i><i></i></div>${img}<dl><dt>과목</dt><dd>${b.tab}</dd><dt>주제</dt><dd>실험 설계</dd></dl></div></div>`;
