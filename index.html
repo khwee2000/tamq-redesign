@@ -6,6 +6,7 @@
 <title>TAM-Q | 생기부 탐구보고서 AI 도우미</title>
 <meta name="description" content="고등학생 생활기록부 탐구보고서를 주제 선정부터 참고자료 탐색, 보고서 작성, 세특 평가까지 AI가 단계별로 도와주는 서비스입니다." />
 <link rel="icon" type="image/png" href="assets/logo-q.png" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;700&display=swap" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <style>
 :root{
@@ -863,6 +864,206 @@ ul,ol{list-style:none}
 .mk-cmt{margin-top:12px;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);font-size:11.5px;line-height:1.65;color:var(--ink-2)}
 .mk-cmt b{display:block;color:var(--ink);font-size:11.5px;margin-bottom:2px}
 
+/* ---------- stages (art-directed mockups) ---------- */
+.cs-card{padding:0!important;overflow:hidden;align-items:stretch!important;grid-template-columns:5fr 7fr!important;gap:0!important;min-height:540px!important}
+.cs-txt{padding:52px 48px;align-self:center}
+.st{position:relative;overflow:hidden;min-height:540px;font-family:"Pretendard Variable",Pretendard,sans-serif}
+/* 1 */
+.st-1{background:radial-gradient(120% 90% at 0% 0%,#3157c4 0%,#14296b 45%,#0a1336 100%);color:#fff}
+.st-1::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(80% 70% at 30% 20%,#000,transparent);mask-image:radial-gradient(80% 70% at 30% 20%,#000,transparent)}
+.st1-cmd{position:absolute;left:40px;right:-20px;top:48px;height:62px;display:flex;align-items:center;gap:8px;padding:0 20px;border-radius:16px 0 0 16px;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 30px 60px -20px rgba(0,0,0,.55);font-size:15px}
+.st1-cmd img{width:22px;height:22px;margin-right:4px}
+.tok{padding:4px 9px;border-radius:7px;background:#eef1f8;font-size:13px;font-weight:600;color:var(--ink-2)}
+.tok.on{background:var(--brand);color:#fff}
+.st1-q{color:var(--ink-3);margin-left:4px;white-space:nowrap}
+.caret{display:inline-block;width:2px;height:17px;background:var(--brand);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.st1-cmd kbd{margin-left:auto;font:600 12px/1 Pretendard,sans-serif;padding:6px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink-3)}
+.st1-list{position:absolute;left:40px;right:-20px;top:126px;padding:14px 10px 10px;border-radius:16px 0 0 16px;background:rgba(10,19,54,.55);border:1px solid rgba(255,255,255,.1);border-right:0;backdrop-filter:blur(14px)}
+.st1-h{font-size:12px;color:rgba(255,255,255,.5);padding:0 12px 8px;letter-spacing:.04em}
+.st1-h b{color:var(--accent)}
+.st1-row{position:relative;padding:12px 14px;border-radius:10px;display:grid;grid-template-columns:1fr auto;column-gap:12px}
+.st1-row b{font-size:15.5px;font-weight:600;letter-spacing:-.02em;color:rgba(255,255,255,.88)}
+.st1-row span{grid-column:1;font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+.st1-row em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:11px;font-weight:700;color:#0a1336;background:var(--accent);padding:4px 8px;border-radius:6px}
+.st1-row.sel{background:rgba(255,255,255,.1);box-shadow:inset 3px 0 0 var(--accent)}
+.st1-row.sel b{color:#fff}
+.st1-row.dim{opacity:.4}
+.st1-cursor{position:absolute;left:46%;top:206px;width:26px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.4))}
+.st1-why{position:absolute;right:28px;bottom:-14px;width:270px;padding:20px 22px 26px;border-radius:16px;background:#fff;color:var(--ink);transform:rotate(-2.5deg);box-shadow:0 34px 60px -24px rgba(0,0,0,.6)}
+.st1-why small{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+.st1-why b{display:block;font-size:17px;letter-spacing:-.03em;margin-top:2px}
+.st1-why ol{margin-top:10px;padding-left:18px;font-size:13px;line-height:1.75;color:var(--ink-2);list-style:decimal}
+.st1-why u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(247,160,7,.35) 60%)}
+/* 2 */
+.st-2{background:#ece5d8}
+.st-2::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 30%,rgba(255,255,255,.6),transparent)}
+.st2-sheet{position:absolute;left:44px;right:-30px;top:44px;bottom:-40px;background:#fffdf8;padding:40px 44px;transform:rotate(-1.6deg);box-shadow:0 2px 0 #e4ddcf,0 40px 70px -30px rgba(60,40,10,.45);font-family:"Noto Serif KR",serif;color:#2b2a28}
+.st2-meta{display:flex;justify-content:space-between;font-family:Pretendard,sans-serif;font-size:11px;color:#9b9384;letter-spacing:.08em;padding-bottom:12px;border-bottom:1px solid #e6dfd1}
+.st2-sheet h4{font-size:21px;font-weight:700;letter-spacing:-.03em;margin:18px 0 14px}
+.st2-sheet p{font-size:13.5px;line-height:2;max-width:400px}
+.st2-sheet p+p{margin-top:6px}
+.st2-lb{display:block;font-family:Pretendard,sans-serif;font-size:11px;font-weight:700;color:#9b9384;letter-spacing:.06em}
+.st2-circ{position:relative;white-space:nowrap}
+.st2-circ svg{position:absolute;left:-10px;right:-10px;top:-8px;bottom:-8px;width:calc(100% + 20px);height:calc(100% + 16px);fill:none;stroke:#d23c3c;stroke-width:2}
+.st2-wave{position:relative}
+.st2-wave svg{position:absolute;left:0;bottom:-4px;width:100%;height:7px;fill:none;stroke:#d23c3c;stroke-width:1.6}
+.st2-pen{position:absolute;font-family:"Nanum Pen Script",cursive;color:#d23c3c;font-size:24px;line-height:1.05;transform:rotate(-4deg)}
+.st2-pen.p1{right:60px;top:150px}
+.st2-pen.p2{left:60px;bottom:110px;font-size:22px;transform:rotate(-2deg)}
+.st2-arrow{position:absolute;right:190px;top:198px;width:60px;fill:none;stroke:#d23c3c;stroke-width:2;stroke-linecap:round}
+.st2-struct{position:absolute;right:26px;top:22px;width:210px;padding:14px 16px;border-radius:14px;background:#1a1a1a;color:#fff;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);transform:rotate(2deg)}
+.st2-struct small{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.08em}
+.st2-struct .seg{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:10px}
+.st2-struct .seg i{height:8px;border-radius:2px;background:#3fc48a}
+.st2-struct .seg i.half{background:linear-gradient(90deg,#f7a007 50%,rgba(255,255,255,.15) 50%)}
+.st2-struct .lab{display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px;font-size:11px;color:rgba(255,255,255,.7)}
+/* 3 */
+.st-3{background:linear-gradient(160deg,#f5f8ff 0%,#e4ecfb 100%);display:grid;grid-template-columns:1.15fr 1fr;align-items:center;padding:30px 30px 60px}
+.st3-gauge{position:relative;width:100%;max-width:330px;justify-self:center}
+.st3-gauge svg{width:100%;display:block}
+.st3-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.st3-num small{font-size:12px;color:var(--ink-3)}
+.st3-num b{font-size:72px;font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.st3-num span{margin-top:6px;font-size:12px;font-weight:700;color:#1f8a55}
+.st3-ref{position:absolute;right:-18px;top:56%;font-size:11.5px;color:var(--ink-2);background:#fff;padding:5px 9px;border-radius:7px;box-shadow:0 6px 14px -6px rgba(15,20,48,.25)}
+.st3-ref b{color:#c27b00}
+.st3-radar svg{width:100%;overflow:visible}
+.st3-radar text{font:600 12px Pretendard,sans-serif;fill:var(--ink)}
+.st3-leg{display:flex;gap:14px;justify-content:center;margin-top:10px;font-size:12px;color:var(--ink-2)}
+.st3-leg i{display:inline-block;width:14px;height:3px;background:var(--brand);vertical-align:middle;margin-right:5px}
+.st3-leg i.ref{background:repeating-linear-gradient(90deg,#f7a007 0 4px,transparent 4px 7px)}
+.st3-tip{position:absolute;left:30px;right:30px;bottom:24px;padding:12px 16px;border-radius:12px;background:var(--ink);color:rgba(255,255,255,.82);font-size:13px}
+.st3-tip b{color:var(--accent);margin-right:8px}
+/* 4 */
+.st-4{background:#fbfbfd;background-image:radial-gradient(#d9dee9 1px,transparent 1px);background-size:18px 18px}
+.st4-map{position:absolute;left:10px;top:10px;width:calc(100% - 10px);height:calc(100% - 50px)}
+.st4-cols text{font:700 14px Pretendard,sans-serif;fill:var(--ink)}
+.st4-cols line{stroke:#d8dde8;stroke-dasharray:3 5}
+.st4-map .ln{fill:none;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.st4-map .ln.a{stroke:#1b4298}.st4-map .ln.b{stroke:#2fa37a}.st4-map .ln.c{stroke:#f7a007}
+.stn circle{fill:#fff;stroke-width:4}
+.stn.a circle{stroke:#1b4298}.stn.b circle{stroke:#2fa37a}.stn.c circle{stroke:#f7a007}
+.lbl text{font:500 12.5px Pretendard,sans-serif;fill:var(--ink-2);text-anchor:middle}
+.lbl text.hl{font-weight:800;fill:var(--ink)}
+.lbl text.t{fill:#b06f00;font-weight:600}
+.st4-dest{position:absolute;right:20px;top:50%;transform:translateY(-62%);padding:14px 18px;border-radius:14px;background:var(--ink);color:#fff;box-shadow:0 20px 40px -16px rgba(15,20,48,.5)}
+.st4-dest small{display:block;font-size:11px;color:rgba(255,255,255,.55)}
+.st4-dest b{font-size:17px;letter-spacing:-.03em}
+.st4-dest::before{content:"";position:absolute;left:-7px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--ink);transform:translateY(-50%);box-shadow:0 0 0 4px #fff}
+.st4-leg{position:absolute;left:32px;bottom:22px;display:flex;gap:16px;font-size:12px;color:var(--ink-2)}
+.st4-leg span::before{content:"";display:inline-block;width:18px;height:5px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.st4-leg .a::before{background:#1b4298}.st4-leg .b::before{background:#2fa37a}.st4-leg .c::before{background:#f7a007}
+@media (max-width:960px){.cs-card{grid-template-columns:1fr!important}.cs-txt{padding:32px 24px 8px}.st{min-height:460px}}
+@media (max-width:620px){.st{min-height:420px}.st1-cmd{left:16px;font-size:13px}.st1-q{display:none}.st1-list{left:16px}.st1-why{right:12px;width:230px}.st2-sheet{left:16px;padding:28px 22px}.st2-pen.p1{right:20px}.st2-arrow{display:none}.st2-struct{right:10px;width:170px}.st-3{grid-template-columns:1fr;padding:20px 20px 90px}.st3-radar{display:none}.st4-dest{right:8px;padding:10px 12px}.st4-dest b{font-size:14px}}
+
+/* ---------- HOW: sticky 5 scenes ---------- */
+.pf{position:relative;height:440vh;background:#fff}
+.pf-stick{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.pf-in{display:grid;grid-template-columns:4.2fr 7.8fr;gap:56px;align-items:center;width:100%}
+.pf-l h2{font-size:clamp(30px,3.6vw,44px);font-weight:700;letter-spacing:-.045em;line-height:1.25;margin-top:14px}
+.pf-l h2 em{font-style:normal;color:var(--brand)}
+.pf-list{margin-top:32px;position:relative}
+.pf-list li{display:flex;gap:16px;padding:12px 0 12px 22px;cursor:pointer;position:relative}
+.pf-list li span{font-size:13px;font-weight:700;color:#c4c9d6;font-variant-numeric:tabular-nums;padding-top:3px;transition:color .3s}
+.pf-list li b{display:block;font-size:19px;font-weight:700;letter-spacing:-.03em;color:#c4c9d6;transition:color .3s}
+.pf-list li p{font-size:14px;color:var(--ink-2);line-height:1.6;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s var(--ease),opacity .4s,margin .45s}
+.pf-list li.done b,.pf-list li.done span{color:var(--ink-3)}
+.pf-list li.on b{color:var(--ink)}
+.pf-list li.on span{color:var(--brand)}
+.pf-list li.on p{max-height:60px;opacity:1;margin-top:4px}
+.pf-prog{position:absolute;left:24px;width:2px;height:0}
+.pf-l{position:relative}
+.pf-list::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:2px;background:var(--line)}
+.pf-prog{display:none}
+.pf-list li.on::before{content:"";position:absolute;left:-3px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-tint)}
+.pf-stage{position:relative;height:min(72vh,560px);border-radius:28px;background:linear-gradient(160deg,#f4f7fe 0%,#e8eefb 100%);overflow:hidden}
+.pf-big{position:absolute;right:28px;bottom:-30px;font-size:220px;font-weight:800;letter-spacing:-.08em;line-height:1;color:rgba(27,66,152,.06);transition:opacity .3s}
+.pf-scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(24px) scale(.98);transition:opacity .55s var(--ease),transform .65s var(--ease);pointer-events:none}
+.pf-scene.on{opacity:1;transform:none}
+.pf-scene.past{transform:translateY(-24px) scale(.98)}
+/* scene 1 */
+.pf1{width:min(440px,82%);padding:30px 32px;border-radius:22px;background:radial-gradient(120% 100% at 0 0,#3157c4,#14296b 55%,#0a1336);color:#fff;box-shadow:0 40px 70px -30px rgba(10,19,54,.7)}
+.pf1 small{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.06em}
+.pf1 b{display:block;font-size:26px;letter-spacing:-.04em;line-height:1.35;margin-top:8px}
+.pf1-tok{display:flex;gap:6px;margin-top:20px}
+.pf1-tok span{padding:5px 10px;border-radius:7px;background:rgba(255,255,255,.12);font-size:12.5px;font-weight:600}
+.pf1-tok span.on{background:var(--accent);color:#0a1336}
+.pf1-foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:rgba(255,255,255,.65)}
+.pf1-foot em{font-style:normal;font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px;background:#fff;color:var(--brand)}
+/* scene 2 */
+.pf2{position:relative;width:420px;height:300px}
+.src{position:absolute;width:300px;padding:20px 22px;border-radius:16px;background:#fff;box-shadow:0 24px 44px -24px rgba(15,20,48,.35);display:grid;gap:4px}
+.src i{justify-self:start;font-style:normal;font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;background:var(--brand-tint);color:var(--brand)}
+.src b{font-size:16px;letter-spacing:-.03em;margin-top:6px}
+.src span{font-size:12px;color:var(--ink-3)}
+.src em{justify-self:end;font-style:normal;font-size:11.5px;font-weight:700;color:#1f8a55;margin-top:6px}
+.src em::before{content:"● ";font-size:9px}
+.src.s1{left:0;top:0;transform:rotate(-4deg)}
+.src.s2{left:70px;top:90px;transform:rotate(2deg);z-index:1}
+.src.s3{left:120px;top:186px;transform:rotate(-1deg);z-index:2}
+.src.s2 i{background:#fff3df;color:#b86e00}.src.s3 i{background:#e7f6ee;color:#1f8a55}
+/* scene 3 */
+.pf3{width:min(440px,84%);padding:32px 34px;background:#fffdf8;box-shadow:0 2px 0 #e6dfd1,0 40px 70px -30px rgba(60,40,10,.4);transform:rotate(-1.2deg);font-family:"Noto Serif KR",serif;color:#2b2a28}
+.pf3-meta{font-family:Pretendard,sans-serif;font-size:11px;color:#9b9384;letter-spacing:.08em;padding-bottom:10px;border-bottom:1px solid #e6dfd1}
+.pf3 h4{font-size:19px;margin:14px 0 10px;letter-spacing:-.03em}
+.pf3 dt{font-family:Pretendard,sans-serif;font-size:11px;font-weight:700;color:var(--brand);margin-top:10px;letter-spacing:.04em}
+.pf3 dd{font-size:13px;line-height:1.8}
+.pf3 .caret{display:inline-block;width:2px;height:14px;background:var(--brand);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+/* scene 4 */
+.pf4{width:min(480px,86%);background:#fff;border:1.5px solid #2b2b2b;box-shadow:0 30px 60px -30px rgba(15,20,48,.35)}
+.pf4-h{display:grid;grid-template-columns:auto auto 1fr;border-bottom:1.5px solid #2b2b2b;font-size:12.5px}
+.pf4-h span{background:#f0f0f0;padding:10px 14px;font-weight:700;border-right:1px solid #2b2b2b}
+.pf4-h span:last-child{border-right:0;text-align:center}
+.pf4-h b{padding:10px 14px;border-right:1px solid #2b2b2b}
+.pf4 p{padding:18px 18px 8px;font-family:"Noto Serif KR",serif;font-size:13.5px;line-height:1.95;color:#2b2a28}
+.pf4 mark{background:linear-gradient(transparent 58%,rgba(27,66,152,.18) 58%);color:inherit}
+.pf4-tags{display:flex;gap:6px;padding:0 18px 18px}
+.pf4-tags span{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--ink);color:#fff}
+/* scene 5 */
+.pf5{position:relative;display:flex;gap:28px;align-items:flex-end}
+.file{position:relative;width:170px;text-align:center}
+.file .pg{position:relative;height:220px;border-radius:6px;background:#fff;box-shadow:0 30px 50px -26px rgba(15,20,48,.4);padding:22px 18px;text-align:left;display:flex;flex-direction:column;gap:9px}
+.file .pg::after{content:"";position:absolute;right:0;top:0;width:26px;height:26px;background:linear-gradient(225deg,#e8eefb 50%,#dde3ef 50%)}
+.file .pg b{font-size:13px}
+.file .pg i{height:7px;border-radius:4px;background:#e9ecf3}
+.file .badge{position:absolute;left:-10px;top:24px;z-index:1;font-size:11px;font-weight:800;padding:4px 8px;border-radius:5px;background:#e5484d;color:#fff;letter-spacing:.06em}
+.file p{margin-top:12px;font-size:12px;color:var(--ink-2)}
+.file.f1{transform:rotate(-3deg)}.file.f2{transform:rotate(3deg) translateY(-10px)}
+.pf5-done{position:absolute;left:50%;top:-56px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#1f8a55;color:#fff;font-size:13px;font-weight:700;white-space:nowrap}
+.pf5-done svg{width:15px;height:15px}
+@media (max-width:960px){
+  .pf{height:auto;padding:96px 0}.pf-stick{position:static;height:auto;display:block}.pf-in{grid-template-columns:1fr;gap:32px}
+  .pf-list li p{max-height:none;opacity:1;margin-top:4px}.pf-list li b,.pf-list li span{color:var(--ink)}
+  .pf-stage{height:auto;background:none;border-radius:0;display:grid;gap:20px}.pf-big{display:none}
+  .pf-scene{position:relative;opacity:1;transform:none;min-height:380px;border-radius:24px;background:linear-gradient(160deg,#f4f7fe,#e8eefb)}
+  .pf-list li.on::before{display:none}
+}
+@media (max-width:620px){.pf2{transform:scale(.8)}.pf5{transform:scale(.8)}.pf1 b{font-size:21px}}
+
+/* ---------- coverflow (English One) ---------- */
+.flow{padding:140px 0 0;overflow:hidden}
+.cover{position:relative;height:470px;margin-top:40px}
+.citem{position:absolute;left:50%;top:50%;width:260px;height:340px;border-radius:24px;overflow:hidden;transition:transform .7s var(--ease),opacity .7s var(--ease);cursor:pointer;box-shadow:0 12px 30px -16px rgba(15,20,48,.3)}
+.citem img{width:100%;height:100%;object-fit:cover}
+.citem .cap{position:absolute;left:22px;top:22px;right:22px}
+.citem .cap small{display:block;font-size:12px;font-weight:700;color:var(--brand)}
+.citem .cap b{display:block;font-size:19px;font-weight:700;letter-spacing:-.03em;margin-top:2px}
+.citem .cap span{display:block;font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.5;opacity:0;transition:opacity .5s}
+.citem.c0 .cap span{opacity:1}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:4px}
+.ctrl .num{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.ctrl .num span{color:var(--ink-3);font-weight:500}
+.ctrl .bar{width:120px;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.ctrl .bar i{display:block;height:100%;background:var(--brand);width:0}
+.ctrl .bar i.run{animation:fill 3.5s linear forwards}
+@keyframes fill{to{width:100%}}
+.ctrl button{width:36px;height:36px;border-radius:50%;background:var(--brand-tint);color:var(--brand);display:grid;place-items:center;transition:background-color .2s,color .2s}
+.ctrl button:hover{background:var(--brand);color:#fff}
+.ctrl svg{width:14px;height:14px}
+
+@media (max-width:720px){.flow{padding-top:96px}.cover{height:410px}.citem{width:220px;height:300px}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1011,57 +1212,76 @@ ul,ol{list-style:none}
       </div>
       <div class="cs-stack"><article class="cs-card">
           <div class="cs-txt"><span class="cs-n">01</span><span class="cs-tag">탐구 프로젝트</span><h3>막막한 관심사를<br />탐구 가능한 주제로</h3><p>과목과 관심 분야를 탐구 주제로 구체화하고, 참고자료 탐색부터 보고서 완성까지 한 흐름으로 이어갑니다.</p><ul><li>교과·단원 기반 맞춤 주제 추천</li><li>탐구에 바로 활용하는 참고자료 연결</li><li>주제부터 PDF까지 이어지는 5단계 워크플로우</li></ul><a class="cs-go" href="https://tamq.co.kr/home">프로젝트 시작하기</a></div>
-          <div class="mk" aria-label="탐구 프로젝트 예시 화면"><div class="mk-bar"><span class="mk-logo"><img src="assets/logo-q.png" alt="" />Tam-Q</span><span class="mk-nav"><i class="on">프로젝트</i><i class="">보고서 첨삭</i><i class="">세특 점수 평가</i><i class="">로드맵</i></span><span class="mk-av">탐</span></div><div class="mk-body">
-  <div class="mk-steps"><b class="on">1 주제 설정</b><b>2 참고 자료</b><b>3 보고서 작성</b><b>4 세특 작성</b><b>5 PDF 저장</b></div>
-  <div class="mk-2col">
-    <div class="mk-panel"><h5>교육과정 · 과목 · 단원</h5>
-      <label>교육과정</label><div class="mk-sel">2022 개정 교육과정</div>
-      <label>과목</label><div class="mk-sel on">미적분Ⅰ</div>
-      <label>단원</label><div class="mk-sel on">미분</div>
-      <div class="mk-btn">주제 추천 받기</div></div>
-    <div class="mk-panel"><h5>추천 탐구 주제 <em>5개</em></h5>
-      <div class="mk-topic sel"><i>1</i><div><b>미분을 활용한 포장재 부피 최적화 전략</b><span>공학 · 산업디자인 진로</span></div></div>
-      <div class="mk-topic"><i>2</i><div><b>스포츠 탄도 궤적과 최적 투사 각도</b><span>체육 · 물리 진로</span></div></div>
-      <div class="mk-topic"><i>3</i><div><b>한계비용으로 본 기업의 이윤 극대화</b><span>경영 · 경제 진로</span></div></div>
-      <div class="mk-topic"><i>4</i><div><b>자율주행차 곡선 경로 예측과 미분</b><span>모빌리티 · AI 진로</span></div></div>
-    </div>
+          <div class="st st-1" aria-label="탐구 프로젝트 예시 화면">
+  <div class="st1-cmd"><img src="assets/logo-q.png" alt="" /><span class="tok">2022 개정</span><span class="tok">미적분Ⅰ</span><span class="tok on">미분</span><span class="st1-q">실생활과 연결되는 주제<i class="caret"></i></span><kbd>↵</kbd></div>
+  <div class="st1-list">
+    <div class="st1-h">추천 탐구 주제 <b>5</b></div>
+    <div class="st1-row sel"><b>미분을 활용한 포장재 부피 최적화 전략</b><span>공학 · 산업디자인 진로</span><em>교과 연계 높음</em></div>
+    <div class="st1-row"><b>스포츠 탄도 궤적과 최적 투사 각도</b><span>체육 · 물리 진로</span></div>
+    <div class="st1-row"><b>한계비용으로 본 기업의 이윤 극대화</b><span>경영 · 경제 진로</span></div>
+    <div class="st1-row dim"><b>자율주행차 곡선 경로 예측과 미분</b><span>모빌리티 · AI 진로</span></div>
   </div>
-</div></div>
+  <svg class="st1-cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#fff" stroke="#0b1a4d" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  <div class="st1-why"><small>추천 이유</small><b>왜 이 주제일까요?</b><ol><li>미분 단원의 <u>최댓값·최솟값</u>과 바로 연결</li><li>택배 상자로 직접 측정·검증 가능</li><li>세특에 '문제 해결' 역량으로 기록</li></ol></div>
+</div>
         </article><article class="cs-card">
           <div class="cs-txt"><span class="cs-n">02</span><span class="cs-tag">보고서 첨삭</span><h3>평가 기준으로 읽고<br />고칠 문장을 짚어 줍니다</h3><p>작성한 탐구보고서를 평가 기준에 따라 분석하고, 문장별 피드백과 구체적인 개선 방향을 제공합니다.</p><ul><li>동기·과정·성취·발전 구조 분석</li><li>논리 공백과 보완 참고자료 제안</li><li>원문에 바로 적용할 수 있는 수정 예시</li></ul><a class="cs-go" href="https://tamq.co.kr/sespec">보고서 첨삭 받기</a></div>
-          <div class="mk" aria-label="보고서 첨삭 예시 화면"><div class="mk-bar"><span class="mk-logo"><img src="assets/logo-q.png" alt="" />Tam-Q</span><span class="mk-nav"><i class="">프로젝트</i><i class="on">보고서 첨삭</i><i class="">세특 점수 평가</i><i class="">로드맵</i></span><span class="mk-av">탐</span></div><div class="mk-body">
-  <div class="mk-chips"><span class="ok">동기 충분</span><span class="warn">과정 보완</span><span class="ok">성취 충분</span><span class="warn">발전 보완</span></div>
-  <div class="mk-doc">
-    <h5>탐구보고서 · 미분을 활용한 포장재 부피 최적화</h5>
-    <p>택배 상자를 정리하다가 같은 재료로 더 많은 물건을 담을 수 없을지 궁금해졌다. 이를 위해 직육면체 상자의 겉넓이를 고정하고 부피를 함수로 나타냈다.</p>
-    <p><mark>도함수가 0이 되는 지점을 구해 부피가 최대인 가로·세로·높이를 찾았다.</mark> 실제 택배 상자 규격과 비교해 차이를 확인했다.</p>
-    <p class="dim">결과적으로 정육면체에 가까울수록 효율이 높았지만, 적재와 운송 조건까지는 고려하지 못했다.</p>
-    <div class="mk-note"><b>수정 제안 · 과정</b>최댓값임을 보이는 근거(증감표 또는 이계도함수)를 한 문장 덧붙이면 논리 공백이 채워집니다.<span>참고자료 1건 연결</span></div>
+          <div class="st st-2" aria-label="보고서 첨삭 예시 화면">
+  <div class="st2-sheet">
+    <div class="st2-meta"><span>탐구보고서</span><span>2학년 · 미적분Ⅰ</span></div>
+    <h4>미분을 활용한 포장재 부피 최적화</h4>
+    <p><span class="st2-lb">Ⅰ. 동기</span>택배 상자를 정리하다가, 같은 재료로 더 많은 물건을 담을 수는 없을지 궁금해졌다.</p>
+    <p><span class="st2-lb">Ⅱ. 과정</span>겉넓이를 고정한 직육면체의 부피를 함수로 놓고, <span class="st2-circ">도함수가 0<svg viewBox="0 0 120 40" preserveAspectRatio="none"><path d="M8 22C6 8 40 2 70 4s48 8 44 20-40 14-72 12S10 34 8 22z"/></svg></span>이 되는 지점에서 부피가 최대임을 찾았다.</p>
+    <p><span class="st2-wave">정육면체에 가까울수록 효율이 높았다.<svg viewBox="0 0 200 8" preserveAspectRatio="none"><path d="M0 5q5-4 10 0t10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0"/></svg></span></p>
+    <span class="st2-pen p1">최댓값인 근거 한 줄!<br />(증감표 or 이계도함수)</span>
+    <span class="st2-pen p2">운송 조건은? → 발전 단계로</span>
+    <svg class="st2-arrow" viewBox="0 0 60 40"><path d="M56 6C40 4 18 10 8 30M8 30l2-10M8 30l9-4"/></svg>
   </div>
-</div></div>
+  <div class="st2-struct"><small>구조 분석</small><div class="seg"><i class="ok"></i><i class="half"></i><i class="ok"></i><i class="half"></i></div><div class="lab"><span>동기</span><span>과정</span><span>성취</span><span>발전</span></div></div>
+</div>
         </article><article class="cs-card">
           <div class="cs-txt"><span class="cs-n">03</span><span class="cs-tag">세특 점수 평가</span><h3>지금 내 세특이<br />어디쯤인지 숫자로</h3><p>생활기록부 세특을 항목별로 진단해 점수와 강점, 보완해야 할 내용을 한눈에 확인합니다.</p><ul><li>학업·진로·공동체 역량별 정밀 진단</li><li>목표 대학군 참고 점수 비교</li><li>강점과 수정 방향을 담은 상세 리포트</li></ul><a class="cs-go" href="https://tamq.co.kr/score">세특 평가하기</a></div>
-          <div class="mk" aria-label="세특 점수 평가 예시 화면"><div class="mk-bar"><span class="mk-logo"><img src="assets/logo-q.png" alt="" />Tam-Q</span><span class="mk-nav"><i class="">프로젝트</i><i class="">보고서 첨삭</i><i class="on">세특 점수 평가</i><i class="">로드맵</i></span><span class="mk-av">탐</span></div><div class="mk-body mk-score">
-  <div class="mk-big"><small>세특 종합 점수</small><b>92.4<i>/100</i></b><span class="tag">매우 우수</span>
-    <div class="mk-bench"><div><span>내 점수</span><i style="width:92%"></i></div><div><span>목표 대학군 참고</span><i class="ref" style="width:86%"></i></div></div></div>
-  <div class="mk-bars">
-    <div><span>학업역량</span><i><b style="width:94%"></b></i><em>9.4</em></div>
-    <div><span>진로역량</span><i><b style="width:89%"></b></i><em>8.9</em></div>
-    <div><span>공동체역량</span><i><b style="width:76%"></b></i><em>7.6</em></div>
-    <div class="mk-tip"><b>강점</b> 탐구 동기와 교과 개념의 연결이 분명합니다.<br /><b>보완</b> 협업 과정과 역할을 구체적으로 남겨 보세요.</div>
+          <div class="st st-3" aria-label="세특 점수 평가 예시 화면">
+  <div class="st3-gauge">
+    <svg viewBox="0 0 220 220"><defs><linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3a63d6"/><stop offset="1" stop-color="#1b4298"/></linearGradient></defs>
+      <circle cx="110" cy="110" r="88" fill="none" stroke="#dfe6f6" stroke-width="14" stroke-dasharray="414.7 553" stroke-linecap="round" transform="rotate(135 110 110)"/>
+      <circle cx="110" cy="110" r="88" fill="none" stroke="url(#g3)" stroke-width="14" stroke-dasharray="383 553" stroke-linecap="round" transform="rotate(135 110 110)"/>
+      <g stroke="#b9c6e6" stroke-width="1.5"><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-135.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-121.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-108.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-94.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-81.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-67.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-54.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-40.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-27.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-13.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(0.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(13.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(27.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(40.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(54.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(67.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(81.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(94.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(108.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(121.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(135.0 110 110)"/></g>
+      <g transform="rotate(97 110 110)"><line x1="110" y1="4" x2="110" y2="34" stroke="#f7a007" stroke-width="3" stroke-linecap="round"/></g>
+    </svg>
+    <div class="st3-num"><small>세특 종합 점수</small><b>92.4</b><span>매우 우수</span></div>
+    <span class="st3-ref">목표 대학군 참고 <b>86</b></span>
   </div>
-</div></div>
+  <div class="st3-radar">
+    <svg viewBox="0 0 200 190"><g fill="none" stroke="#d3dcef"><polygon points="100,20 176,152 24,152"/><polygon points="100,60 141,132 59,132"/><line x1="100" y1="20" x2="100" y2="108"/><line x1="176" y1="152" x2="100" y2="108"/><line x1="24" y1="152" x2="100" y2="108"/></g>
+      <polygon points="100,108 100,108 100,108" fill="none"/>
+      <polygon points="100,28 168,147 42,141" fill="rgba(27,66,152,.18)" stroke="#1b4298" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="100,38 162,143 36,147" fill="none" stroke="#f7a007" stroke-width="1.6" stroke-dasharray="4 4"/>
+      <g fill="#1b4298"><circle cx="100" cy="28" r="4"/><circle cx="168" cy="147" r="4"/><circle cx="42" cy="141" r="4"/></g>
+      <text x="100" y="12" text-anchor="middle">학업 9.4</text><text x="190" y="172" text-anchor="end">진로 8.9</text><text x="10" y="172">공동체 7.6</text>
+    </svg>
+    <div class="st3-leg"><span><i></i>내 세특</span><span><i class="ref"></i>목표 대학군</span></div>
+  </div>
+  <div class="st3-tip"><b>보완하면 좋아요</b>협업 과정에서 맡은 역할을 구체적으로 남겨 보세요.</div>
+</div>
         </article><article class="cs-card">
           <div class="cs-txt"><span class="cs-n">04</span><span class="cs-tag">진로 로드맵</span><h3>희망 진로에서 거꾸로<br />과목과 탐구를 설계</h3><p>학생의 핵심 가치와 희망 진로를 바탕으로 교과 선택, 탐구 활동, 학업 전략을 연결해 설계합니다.</p><ul><li>희망 진로와 연결되는 과목 설계</li><li>학년별 세특·탐구 활동 전략</li><li>과목별 맞춤 주제와 전략 코멘트</li></ul><a class="cs-go" href="https://tamq.co.kr/roadmap">로드맵 그리기</a></div>
-          <div class="mk" aria-label="진로 로드맵 예시 화면"><div class="mk-bar"><span class="mk-logo"><img src="assets/logo-q.png" alt="" />Tam-Q</span><span class="mk-nav"><i class="">프로젝트</i><i class="">보고서 첨삭</i><i class="">세특 점수 평가</i><i class="on">로드맵</i></span><span class="mk-av">탐</span></div><div class="mk-body">
-  <div class="mk-goal"><span>희망 진로</span><b>컴퓨터공학과</b><em>핵심 가치 · 문제 해결</em></div>
-  <div class="mk-years">
-    <div><h6>1학년</h6><span>공통수학</span><span>통합과학</span><span>정보</span><p>알고리즘 기초 탐구</p></div>
-    <div><h6>2학년</h6><span class="hl">미적분Ⅰ</span><span>물리학</span><span class="hl">인공지능 기초</span><p>머신러닝 손실함수와 미분</p></div>
-    <div><h6>3학년</h6><span>확률과 통계</span><span class="hl">데이터 과학</span><span>기하</span><p>추천 알고리즘 데이터 분석</p></div>
-  </div>
-  <div class="mk-cmt"><b>전략 코멘트</b>2학년 미적분Ⅰ 탐구를 3학년 데이터 과학으로 이어 가면, 한 주제가 학년을 넘어 깊어지는 기록이 됩니다.</div>
-</div></div>
+          <div class="st st-4" aria-label="진로 로드맵 예시 화면">
+  <svg class="st4-map" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet">
+    <g class="st4-cols"><text x="70" y="40">1학년</text><text x="250" y="40">2학년</text><text x="430" y="40">3학년</text><line x1="160" y1="56" x2="160" y2="400"/><line x1="340" y1="56" x2="340" y2="400"/></g>
+    <path class="ln a" d="M40 120H230C262 120 262 120 290 120H420C470 120 480 200 540 210"/>
+    <path class="ln b" d="M40 220H200C240 220 250 180 290 180H420C460 180 480 205 540 210"/>
+    <path class="ln c" d="M40 320H230C270 320 280 300 330 300H430C480 300 490 230 540 214"/>
+    <g class="stn a"><circle cx="70" cy="120" r="9"/><circle cx="250" cy="120" r="9"/><circle cx="430" cy="120" r="9"/></g>
+    <g class="stn b"><circle cx="70" cy="220" r="9"/><circle cx="250" cy="180" r="9"/><circle cx="430" cy="180" r="9"/></g>
+    <g class="stn c"><circle cx="70" cy="320" r="9"/><circle cx="250" cy="300" r="9"/><circle cx="430" cy="300" r="9"/></g>
+    <g class="lbl"><text x="70" y="148">공통수학</text><text x="250" y="148" class="hl">미적분Ⅰ</text><text x="430" y="100">확률과 통계</text>
+      <text x="70" y="248">정보</text><text x="250" y="164" class="hl">인공지능 기초</text><text x="430" y="164" class="hl">데이터 과학</text>
+      <text x="70" y="348" class="t">알고리즘 기초 탐구</text><text x="250" y="284" class="t">손실함수와 미분</text><text x="430" y="284" class="t">추천 알고리즘 분석</text></g>
+  </svg>
+  <div class="st4-dest"><small>희망 진로</small><b>컴퓨터공학과</b></div>
+  <div class="st4-leg"><span class="a">수학</span><span class="b">정보</span><span class="c">탐구 활동</span></div>
+</div>
         </article></div>
       <p class="cs-note">화면은 이해를 돕기 위한 예시입니다.</p>
     </div>
@@ -1109,23 +1329,19 @@ ul,ol{list-style:none}
     </div>
   </section>
 
-  <!-- HOW : 5단계 (사랑밭 '후원이 처음이신가요' stepper) -->
-  <section class="sw" id="how">
-    <div class="sw-in">
-      <div class="sw-l">
-        <span class="hash reveal"># 5단계 워크플로우</span>
-        <h2 class="reveal">주제부터 PDF까지,<br /><em>5단계로 끝.</em></h2>
-        <p class="reveal">하나의 프로젝트 안에서 다시 입력하지 않아도 맥락이 이어집니다.</p>
-        <p class="sw-desc reveal" id="swDesc"></p>
-        <div class="sw-ctrl reveal">
-          <button id="swPrev" aria-label="이전 단계"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button>
-          <button id="swNext" aria-label="다음 단계"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button>
-          <span class="sw-num" id="swNum"><b>01</b>/05</span>
-          <span class="sw-bar"><i id="swBar"></i></span>
-          <button id="swPause" aria-label="자동 재생 멈춤"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="2.5" height="10" rx="1"/><rect x="9.5" y="3" width="2.5" height="10" rx="1"/></svg></button>
-        </div>
-      </div>
-      <div class="sw-view"><ol class="sw-track" id="swTrack"><li class="sw-card" data-k="0"><svg class="sw-blob" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true"><path d="M70 6h60a16 16 0 0 1 16 16v24a8 8 0 0 0 8 8h24a16 16 0 0 1 16 16v60a16 16 0 0 1-16 16h-24a8 8 0 0 0-8 8v24a16 16 0 0 1-16 16H70a16 16 0 0 1-16-16v-24a8 8 0 0 0-8-8H22a16 16 0 0 1-16-16V70a16 16 0 0 1 16-16h24a8 8 0 0 0 8-8V22A16 16 0 0 1 70 6z"/></svg><span class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V17h5.2v-1.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="sw-n">STEP 01</span><h3>주제 설정</h3><p>교육과정·과목·단원을 고르면 교과 개념과 진로를 연결한 탐구 주제를 추천합니다.</p></li><li class="sw-card" data-k="1"><svg class="sw-blob" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true"><path d="M70 6h60a16 16 0 0 1 16 16v24a8 8 0 0 0 8 8h24a16 16 0 0 1 16 16v60a16 16 0 0 1-16 16h-24a8 8 0 0 0-8 8v24a16 16 0 0 1-16 16H70a16 16 0 0 1-16-16v-24a8 8 0 0 0-8-8H22a16 16 0 0 1-16-16V70a16 16 0 0 1 16-16h24a8 8 0 0 0 8-8V22A16 16 0 0 1 70 6z"/></svg><span class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20"/><path d="M9 8h7M9 12h5"/></svg></span><span class="sw-n">STEP 02</span><h3>참고 자료</h3><p>선택한 주제에 바로 쓸 수 있는 참고자료를 찾아 연결합니다.</p></li><li class="sw-card" data-k="2"><svg class="sw-blob" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true"><path d="M70 6h60a16 16 0 0 1 16 16v24a8 8 0 0 0 8 8h24a16 16 0 0 1 16 16v60a16 16 0 0 1-16 16h-24a8 8 0 0 0-8 8v24a16 16 0 0 1-16 16H70a16 16 0 0 1-16-16v-24a8 8 0 0 0-8-8H22a16 16 0 0 1-16-16V70a16 16 0 0 1 16-16h24a8 8 0 0 0 8-8V22A16 16 0 0 1 70 6z"/></svg><span class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span class="sw-n">STEP 03</span><h3>보고서 작성</h3><p>동기·과정·성취·발전의 흐름으로 탐구보고서를 씁니다.</p></li><li class="sw-card" data-k="3"><svg class="sw-blob" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true"><path d="M70 6h60a16 16 0 0 1 16 16v24a8 8 0 0 0 8 8h24a16 16 0 0 1 16 16v60a16 16 0 0 1-16 16h-24a8 8 0 0 0-8 8v24a16 16 0 0 1-16 16H70a16 16 0 0 1-16-16v-24a8 8 0 0 0-8-8H22a16 16 0 0 1-16-16V70a16 16 0 0 1 16-16h24a8 8 0 0 0 8-8V22A16 16 0 0 1 70 6z"/></svg><span class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><span class="sw-n">STEP 04</span><h3>세특 작성</h3><p>탐구 과정을 세부능력 및 특기사항 문장으로 정리합니다.</p></li><li class="sw-card" data-k="4"><svg class="sw-blob" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true"><path d="M70 6h60a16 16 0 0 1 16 16v24a8 8 0 0 0 8 8h24a16 16 0 0 1 16 16v60a16 16 0 0 1-16 16h-24a8 8 0 0 0-8 8v24a16 16 0 0 1-16 16H70a16 16 0 0 1-16-16v-24a8 8 0 0 0-8-8H22a16 16 0 0 1-16-16V70a16 16 0 0 1 16-16h24a8 8 0 0 0 8-8V22A16 16 0 0 1 70 6z"/></svg><span class="sw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span><span class="sw-n">STEP 05</span><h3>PDF 저장</h3><p>완성한 보고서와 세특을 PDF로 내보냅니다.</p></li></ol></div>
+  <!-- COVERFLOW (English One) + controls (사랑밭) -->
+  <section class="flow" id="how">
+    <div class="wrap s-head">
+      <span class="hash reveal"># 5단계 워크플로우</span>
+      <h2 class="reveal">주제부터 PDF까지, <em>5단계로 끝</em></h2>
+    </div>
+    <div class="cover reveal" id="cover"></div>
+    <div class="ctrl">
+      <button id="cPrev" aria-label="이전 단계"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button>
+      <span class="num" id="cNum">01 <span>/ 05</span></span>
+      <span class="bar"><i id="cBar"></i></span>
+      <button id="cPause" aria-label="자동 재생 멈춤"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="2.5" height="10" rx="1"/><rect x="9.5" y="3" width="2.5" height="10" rx="1"/></svg></button>
+      <button id="cNext" aria-label="다음 단계"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
   </section>
 
@@ -1346,24 +1562,44 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   });
 })();
 
-// HOW: 사랑밭-style stepper
+// Coverflow with counter / progress / pause
 (() => {
-  const track = $('#swTrack'), cards = [...track.children], bar = $('#swBar'), pauseBtn = $('#swPause');
-  let k = 0, t, playing = !reduce;
+  const steps = [
+    ['STEP 1', '주제 설정', '교과·단원을 고르면 탐구 주제를 추천해요', 'step-1'],
+    ['STEP 2', '참고 자료', '탐구에 바로 쓰는 자료를 연결해요', 'step-2'],
+    ['STEP 3', '보고서 작성', '동기·과정·성취·발전 흐름으로 써요', 'step-3'],
+    ['STEP 4', '세특 작성', '탐구 과정을 세특 문장으로 정리해요', 'step-4'],
+    ['STEP 5', 'PDF 저장', '완성본을 PDF로 내보내요', 'step-5'],
+  ];
+  const cover = $('#cover'), bar = $('#cBar'), num = $('#cNum'), pauseBtn = $('#cPause');
+  let i = 0, timer, playing = !reduce;
+  cover.innerHTML = steps.map(([s, t, d, img], k) => `<div class="citem"><img src="assets/${img}.webp" alt=""><div class="cap"><small>${s}</small><b>${t}</b><span>${d}</span></div></div>`).join('');
+  const items = [...cover.children], N = items.length;
   const go = (n) => {
-    k = (n + cards.length) % cards.length;
-    cards.forEach((c, i) => { c.classList.toggle('on', i === k); c.classList.toggle('past', i < k); });
-    const w = cards[0].getBoundingClientRect().width + 20;
-    track.style.transform = `translateX(${-k * w}px)`;
-    $('#swNum').innerHTML = `<b>${String(k + 1).padStart(2, '0')}</b>/05`;
-    $('#swDesc').innerHTML = `<b>${cards[k].querySelector('h3').textContent}</b>${cards[k].querySelector('p').textContent}`;
+    i = (n + N) % N;
+    const w = innerWidth < 720 ? 210 : 330;
+    items.forEach((el, k) => {
+      let o = k - i; if (o > N / 2) o -= N; if (o < -N / 2) o += N;
+      const a = Math.abs(o);
+      el.className = 'citem' + (a === 0 ? ' c0' : '');
+      el.style.transform = `translate(-50%,-50%) translateX(${o * w}px) scale(${a === 0 ? 1.3 : 1})`;
+      el.style.zIndex = 10 - a; el.style.opacity = a > 2 ? 0 : 1;
+      el.onclick = () => go(k);
+    });
+    num.innerHTML = `${String(i + 1).padStart(2, '0')} <span>/ ${String(N).padStart(2, '0')}</span>`;
     bar.classList.remove('run'); void bar.offsetWidth;
-    clearTimeout(t); if (playing) { bar.classList.add('run'); t = setTimeout(() => go(k + 1), 4000); }
+    clearTimeout(timer);
+    if (playing) { bar.classList.add('run'); timer = setTimeout(() => go(i + 1), 3500); }
   };
-  $('#swPrev').onclick = () => go(k - 1); $('#swNext').onclick = () => go(k + 1);
-  cards.forEach((c, i) => c.onclick = () => go(i));
-  pauseBtn.onclick = () => { playing = !playing; pauseBtn.innerHTML = playing ? '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="2.5" height="10" rx="1"/><rect x="9.5" y="3" width="2.5" height="10" rx="1"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 3l8 5-8 5z"/></svg>'; pauseBtn.setAttribute('aria-label', playing ? '자동 재생 멈춤' : '자동 재생'); go(k); };
-  addEventListener('resize', () => go(k));
+  $('#cPrev').onclick = () => go(i - 1);
+  $('#cNext').onclick = () => go(i + 1);
+  pauseBtn.onclick = () => {
+    playing = !playing;
+    pauseBtn.setAttribute('aria-label', playing ? '자동 재생 멈춤' : '자동 재생');
+    pauseBtn.innerHTML = playing ? '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="2.5" height="10" rx="1"/><rect x="9.5" y="3" width="2.5" height="10" rx="1"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 3l8 5-8 5z"/></svg>';
+    go(i);
+  };
+  addEventListener('resize', () => go(i));
   go(0);
 })();
 
