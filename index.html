@@ -1066,6 +1066,32 @@ ul,ol{list-style:none}
 
 .cs-card{border:0!important}
 
+/* ---------- topic cards: v3 folder-tab photo ---------- */
+.shelf .book-card{flex:0 0 calc((100% - 88px)/5);min-width:210px}
+.shelf .book-card .img{aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:var(--bg-sunk)}
+.shelf .book-card .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.shelf .book-card:hover .img img{transform:scale(1.05)}
+@media (max-width:720px){.shelf .book-card{flex-basis:64%}}
+
+/* ---------- core features: v3 tint cards, 1:2 text:mockup ---------- */
+.cs-card{grid-template-columns:1fr 2fr!important;min-height:500px!important;border-radius:28px!important;box-shadow:none!important;background:var(--t,#f3f2fe)!important;position:sticky}
+.cs-card:nth-child(1){--t:linear-gradient(120deg,#f3f1fe,#e7ecfb)}
+.cs-card:nth-child(2){--t:linear-gradient(120deg,#eef4fd,#e3f0f6)}
+.cs-card:nth-child(3){--t:linear-gradient(120deg,#f1f3fa,#e6ebf7)}
+.cs-card:nth-child(4){--t:linear-gradient(120deg,#eef5f6,#e5effa)}
+.cs-card::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:linear-gradient(rgba(27,66,152,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(27,66,152,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 45%);mask-image:linear-gradient(90deg,#000,transparent 45%);pointer-events:none}
+.cs-txt{position:relative;padding:44px 36px 44px 44px!important}
+.cs-n{display:none}
+.cs-tag{margin-top:0!important;background:var(--ink)!important;color:#fff!important}
+.cs-txt h3{font-size:clamp(24px,2.4vw,30px)!important;margin-top:16px!important}
+.cs-txt ul{margin:18px 0 26px!important}
+.cs-go{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 18px;border-radius:12px;background:#fff;color:var(--ink)!important;box-shadow:0 2px 6px rgba(15,20,48,.06);transition:transform .2s var(--ease),box-shadow .2s}
+.cs-go:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(15,20,48,.25)}
+.cs-card .st{margin:20px 20px 20px 0;border-radius:20px;min-height:460px;box-shadow:0 30px 60px -36px rgba(15,20,48,.35)}
+@media (max-width:960px){.cs-card{grid-template-columns:1fr!important}.cs-card .st{margin:0 16px 16px}.cs-txt{padding:32px 24px 20px!important}}
+
+.cs-card .st2-pen.p2{bottom:46px;left:auto;right:90px}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1483,13 +1509,13 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 // Shelf: feature books + topic books
 (() => {
   const books = [
-    { subj: '수학', tab: '미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'opt', sj: '미적분Ⅰ', kw: '미분 · 최적화', car: '공학 · 산업디자인', short: '미분을 활용한<br>포장재 부피<br>최적화 전략', href: 'https://tamq.co.kr/home' },
-    { subj: '정보', tab: '정보', title: '생성형 AI가 학습 능력에 미치는 영향', meta: '정보 · 인공지능 기초', kind: 'rr', rc: '#e07a2c', art: 'net', sj: '인공지능 기초', kw: '생성형 AI · 학습', car: '교육 · 사회과학', short: '생성형 AI가<br>학습 능력에<br>미치는 영향', href: 'https://tamq.co.kr/home' },
-    { subj: '과학', tab: '화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '과학 · 화학', kind: 'rr', rc: '#2f9a74', art: 'mol', sj: '화학', kw: '반응 속도 · 촉매', car: '화학공학 · 약학', short: '반응 속도를<br>바꾸는 조건<br>실험 설계', href: 'https://tamq.co.kr/home' },
-    { subj: '수학', tab: '미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '수학 · 미적분', kind: 'rr', rc: '#3b6fe0', art: 'arc', sj: '미적분Ⅰ', kw: '미분 · 포물선 운동', car: '체육 · 물리', short: '스포츠 탄도 궤적과<br>최적 투사 각도<br>탐구', href: 'https://tamq.co.kr/home' },
-    { subj: '사회', tab: '경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '사회 · 경제', kind: 'rr', rc: '#c9861f', art: 'bars', sj: '경제', kw: '한계비용 · 한계수익', car: '경영 · 경제', short: '한계비용과<br>한계수익으로 본<br>이윤 극대화', href: 'https://tamq.co.kr/home' },
-    { subj: '과학', tab: '생명과학', title: '카페인 섭취량과 집중력의 상관관계', meta: '과학 · 생명과학', kind: 'rr', rc: '#5f9a3e', art: 'leaf', sj: '생명과학', kw: '신경계 · 카페인', car: '의약 · 보건', short: '카페인 섭취량과<br>집중력의<br>상관관계', href: 'https://tamq.co.kr/home' },
-    { subj: '수학', tab: '미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '수학 · 미적분', kind: 'rr', rc: '#5b5bd6', art: 'path', sj: '미적분Ⅰ', kw: '곡률 · 미분', car: '모빌리티 · AI', short: '자율주행차<br>곡선 주행 경로<br>예측과 미분', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '미분을 활용한 포장재 부피 최적화 전략', meta: '수학 · 미적분', kind: 'photo', rc: '#3b6fe0', art: 'opt', img: 'topic-box', sj: '미적분Ⅰ', kw: '미분 · 최적화', car: '공학 · 산업디자인', short: '미분을 활용한<br>포장재 부피<br>최적화 전략', href: 'https://tamq.co.kr/home' },
+    { subj: '정보', tab: '정보', title: '생성형 AI가 학습 능력에 미치는 영향', meta: '정보 · 인공지능 기초', kind: 'photo', rc: '#e07a2c', art: 'net', img: 'topic-ai', sj: '인공지능 기초', kw: '생성형 AI · 학습', car: '교육 · 사회과학', short: '생성형 AI가<br>학습 능력에<br>미치는 영향', href: 'https://tamq.co.kr/home' },
+    { subj: '과학', tab: '화학', title: '반응 속도에 영향을 주는 조건을 바꿔 보는 실험 설계', meta: '과학 · 화학', kind: 'photo', rc: '#2f9a74', art: 'mol', img: 'topic-lab', sj: '화학', kw: '반응 속도 · 촉매', car: '화학공학 · 약학', short: '반응 속도를<br>바꾸는 조건<br>실험 설계', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '스포츠 경기의 탄도 궤적 분석: 미분을 이용한 최적 투사 각도 탐구', meta: '수학 · 미적분', kind: 'photo', rc: '#3b6fe0', art: 'arc', img: 'topic-ball', sj: '미적분Ⅰ', kw: '미분 · 포물선 운동', car: '체육 · 물리', short: '스포츠 탄도 궤적과<br>최적 투사 각도<br>탐구', href: 'https://tamq.co.kr/home' },
+    { subj: '사회', tab: '경제', title: '기업의 이윤 극대화 전략: 한계비용과 한계수익을 활용한 분석', meta: '사회 · 경제', kind: 'photo', rc: '#c9861f', art: 'bars', img: 'topic-data', sj: '경제', kw: '한계비용 · 한계수익', car: '경영 · 경제', short: '한계비용과<br>한계수익으로 본<br>이윤 극대화', href: 'https://tamq.co.kr/home' },
+    { subj: '과학', tab: '생명과학', title: '카페인 섭취량과 집중력의 상관관계', meta: '과학 · 생명과학', kind: 'photo', rc: '#5f9a3e', art: 'leaf', img: 'topic-caffeine', sj: '생명과학', kw: '신경계 · 카페인', car: '의약 · 보건', short: '카페인 섭취량과<br>집중력의<br>상관관계', href: 'https://tamq.co.kr/home' },
+    { subj: '수학', tab: '미적분', title: '자율주행차의 곡선 주행 경로 예측과 안전성 확보를 위한 미분 활용', meta: '수학 · 미적분', kind: 'photo', rc: '#5b5bd6', art: 'path', img: 'topic-city', sj: '미적분Ⅰ', kw: '곡률 · 미분', car: '모빌리티 · AI', short: '자율주행차<br>곡선 주행 경로<br>예측과 미분', href: 'https://tamq.co.kr/home' },
   ];
   const rrArt = (k, c) => {
     const g = `<defs><linearGradient id="g${k}${c.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".28"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>`;
@@ -1508,6 +1534,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   const cover = (b) => {
     const img = `<img src="assets/${b.img}.webp" alt="" loading="lazy">`;
     switch (b.kind) {
+      case 'photo': return `<div class="img"><img src="assets/${b.img}.webp" alt="" loading="lazy"></div>`;
       case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span class="rr-doc">탐구보고서</span><span>2026학년도</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><dl class="rr-tbl"><dt>과목</dt><dd>${b.sj}</dd><dt>핵심 개념</dt><dd>${b.kw}</dd><dt>연계 진로</dt><dd>${b.car}</dd></dl><div class="rr-foot"><span class="rr-ok">2022 개정 교육과정 연계</span><img src="assets/logo-q.png" alt=""></div></div>`;
       case 'polaroid': return `<div class="cv cv-polaroid"><div class="pol"><span class="tape"></span>${img}<em>#${b.tab}</em></div></div>`;
       case 'photo': return `<div class="cv cv-photo">${img}<svg class="arc" viewBox="0 0 228 300" preserveAspectRatio="none"><path d="M10 250C70 60 160 50 220 210" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 6"/><circle cx="118" cy="98" r="4" fill="#f7a007"/></svg><div class="cap"><small>인기 탐구 주제</small><b>${b.sub}</b></div></div>`;
