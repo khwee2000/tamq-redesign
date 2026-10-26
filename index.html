@@ -1108,6 +1108,79 @@ ul,ol{list-style:none}
 @media (max-width:720px){.hbub{position:relative;inset:auto;display:flex;flex-wrap:wrap;gap:8px 6px;justify-content:center;margin-bottom:18px}.hb2{position:static;font-size:13px;padding:8px 11px}.hb2:nth-child(n+5){display:none}.hb2::after{display:none}}
 @media (prefers-reduced-motion:reduce){.hb2{opacity:1;transform:none}}
 
+/* ---------- topic cards: square (reference) ---------- */
+.sqrow{gap:22px;padding:26px 6px 34px;align-items:center}
+.sq{flex:0 0 300px;height:300px;scroll-snap-align:start;display:flex;flex-direction:column;padding:22px 22px 18px;border-radius:20px;background:#fff;border:1px solid #e8ebf2;box-shadow:0 10px 30px -18px rgba(15,20,48,.22);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
+.sq.on{transform:scale(1.06);border-color:#dfe5f3;box-shadow:0 30px 60px -26px rgba(27,66,152,.35)}
+.sq-top{display:flex;align-items:center;gap:7px;font-size:12.5px}
+.sq-dot{width:9px;height:9px;border-radius:50%;background:var(--rc)}
+.sq-top em{margin-left:auto;font-style:normal;font-size:11.5px;color:var(--ink-3)}
+.sq h4{margin-top:12px;font-size:17px;font-weight:700;letter-spacing:-.035em;line-height:1.38;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sq p{margin-top:6px;font-size:12.5px;color:var(--ink-3);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sq-art{flex:1;min-height:0;margin:6px -6px 4px}
+.sq-art svg{width:100%;height:100%;display:block;overflow:visible}
+.sq-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sq-tags{display:flex;gap:5px;overflow:hidden}
+.sq-tags i{font-style:normal;font-size:11px;padding:4px 9px;border-radius:999px;background:#f2f4f8;color:var(--ink-2);white-space:nowrap}
+.sq-go{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #e3e7ef;display:grid;place-items:center;color:var(--ink);transition:background-color .3s,color .3s,border-color .3s}
+.sq-go svg{width:15px;height:15px}
+.sq.on .sq-go{background:#2f6bff;border-color:#2f6bff;color:#fff;box-shadow:0 10px 20px -8px rgba(47,107,255,.6)}
+.sq-pager{display:flex;justify-content:center;margin-top:4px;font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.sq-pager b{color:var(--ink)}
+.arrows button:disabled{opacity:.35;cursor:default}
+@media (max-width:720px){.sq{flex-basis:270px;height:290px}}
+
+.faq{position:relative;z-index:1;padding-bottom:100px!important}
+.sqrow{padding:30px 24px 70px!important;margin:0 -24px -40px}
+.sq-art{overflow:hidden}
+
+/* ---------- WHAT: Toss service-page style ---------- */
+.tf{background:#fff;padding:140px 0 60px}
+.tf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.tf-eye{font-size:19px;font-weight:600;color:#6b7684}
+.tf-head h2{font-size:clamp(32px,3.6vw,46px);font-weight:700;letter-spacing:-.045em;line-height:1.32;margin-top:14px;color:#191f28}
+.tf-lead{font-size:16px;line-height:1.7;color:#4e5968;max-width:420px}
+.tf-body{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;margin-top:120px}
+.tf-side{position:relative}
+.tf-pill{position:sticky;top:120px;display:inline-grid;place-items:center;height:30px;padding:0 12px;border-radius:8px;border:1px solid #e5e8eb;font-size:13px;color:#6b7684;font-variant-numeric:tabular-nums;background:#fff}
+.tf-item{padding-top:32px;border-top:1px solid #e5e8eb;margin-bottom:96px}
+.tf-item h3{font-size:22px;font-weight:700;letter-spacing:-.035em;color:#191f28}
+.tf-item p{margin-top:12px;font-size:16px;line-height:1.7;color:#4e5968}
+.tf-panel{position:relative;margin-top:28px;height:360px;border-radius:32px;background:#f2f4f6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden}
+.tf-panel::before{content:"";position:absolute;left:50%;top:55%;width:320px;height:220px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(49,130,246,.16),transparent);pointer-events:none}
+.tm{position:relative;width:300px;padding:20px 20px 18px;border-radius:18px;background:#fff;box-shadow:0 8px 24px -12px rgba(0,27,55,.15);color:#191f28}
+.tm small{display:block;font-size:12px;color:#8b95a1}
+.tm-h{display:block;font-size:17px;margin:4px 0 12px;letter-spacing:-.03em}
+.tm-row{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:12px;font-size:13.5px;color:#4e5968}
+.tm-row.on{background:#e8f3ff;color:#1b64da;font-weight:600}
+.tm-row i{width:20px;height:20px;border-radius:50%;background:#3182f6;color:#fff;display:grid;place-items:center}
+.tm-row i svg{width:12px;height:12px}
+.tm2 p{margin-top:10px;font-size:14px;line-height:1.75;color:#4e5968}
+.tm2 u{text-decoration:none;color:#191f28;background:linear-gradient(transparent 62%,#c9e2ff 62%)}
+.tm-tip{margin-top:14px;padding:12px 14px;border-radius:12px;background:#f9fafb;font-size:12.5px;line-height:1.6;color:#4e5968}
+.tm-tip b{display:block;color:#3182f6;font-size:12.5px;margin-bottom:2px}
+.tm-big{display:block;font-size:28px;letter-spacing:-.04em;margin-top:2px}
+.tm-sub{font-size:12.5px;color:#6b7684}
+.tm-sub em{font-style:normal;color:#3182f6;font-weight:700}
+.tm3 svg{display:block;width:100%;margin-top:12px}
+.tm3b{display:flex;align-items:center;gap:12px;padding:14px 18px}
+.tm-ic{width:34px;height:34px;border-radius:50%;background:#e8f3ff;color:#3182f6;display:grid;place-items:center;font-weight:700;font-size:13px}
+.tm3b b{display:block;font-size:14px}
+.tm3b em{margin-left:auto;font-style:normal;font-size:12px;color:#3182f6;font-weight:600}
+.tm4{position:relative;display:flex;align-items:center;gap:8px}
+.tm-t{width:96px;height:96px;border-radius:22px;background:rgba(255,255,255,.7);box-shadow:0 8px 20px -12px rgba(0,27,55,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#8b95a1}
+.tm-t small{font-size:11px}
+.tm-t b{font-size:13.5px;color:#4e5968}
+.tm-t.on{width:112px;height:112px;background:#fff;box-shadow:0 14px 30px -10px rgba(49,130,246,.35)}
+.tm-t.on b{color:#3182f6;font-size:15px}
+.tm-ar{color:#b0b8c1;font-size:20px}
+.tm4b{width:auto;padding:12px 22px;text-align:center}
+.tm4b b{font-size:15px}
+@media (max-width:960px){.tf-head{flex-direction:column;align-items:flex-start}.tf-body{grid-template-columns:1fr;margin-top:64px}.tf-side{display:none}}
+@media (max-width:620px){.tf{padding:96px 0 20px}.tf-panel{height:320px;border-radius:24px}.tm{width:260px}.tm-t{width:78px;height:78px}.tm-t.on{width:90px;height:90px}.tf-item{margin-bottom:64px}.tf-item p br{display:none}}
+
+@media (max-width:720px){.sqrow{margin:0 -16px -40px;padding:30px 16px 70px!important}}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1246,88 +1319,25 @@ ul,ol{list-style:none}
     </div>
   </section>
 
-  <!-- WHAT : 핵심 기능 (C: sticky stacking cards + HTML mockups) -->
-  <section class="cs" id="service">
+  <!-- WHAT : 핵심 기능 (Toss service page style) -->
+  <section class="tf" id="service">
     <div class="wrap">
-      <div class="s-head">
-        <span class="hash reveal"># 핵심 기능</span>
-        <h2 class="reveal">수행평가부터 입시까지 잇는<br /><em>TAM-Q의 핵심 기능</em></h2>
-        <p class="reveal">탐구보고서의 과정이 세특과 입시 준비의 근거로 자연스럽게 이어집니다.</p>
+      <div class="tf-head">
+        <div><p class="tf-eye reveal">핵심 기능</p><h2 class="reveal">수행평가부터 입시까지,<br />TAM-Q의 핵심 기능</h2></div>
+        <p class="tf-lead reveal">탐구보고서의 과정이 세특과 입시 준비의 근거로<br />자연스럽게 이어지도록 단계마다 함께해요.</p>
       </div>
-      <div class="cs-stack"><article class="cs-card">
-          <div class="cs-txt"><span class="cs-n">01</span><span class="cs-tag">탐구 프로젝트</span><h3>막막한 관심사를<br />탐구 가능한 주제로</h3><p>과목과 관심 분야를 탐구 주제로 구체화하고, 참고자료 탐색부터 보고서 완성까지 한 흐름으로 이어갑니다.</p><ul><li>교과·단원 기반 맞춤 주제 추천</li><li>탐구에 바로 활용하는 참고자료 연결</li><li>주제부터 PDF까지 이어지는 5단계 워크플로우</li></ul><a class="cs-go" href="https://tamq.co.kr/home">프로젝트 시작하기</a></div>
-          <div class="st st-1" aria-label="탐구 프로젝트 예시 화면">
-  <div class="st1-cmd"><img src="assets/logo-q.png" alt="" /><span class="tok">2022 개정</span><span class="tok">미적분Ⅰ</span><span class="tok on">미분</span><span class="st1-q">실생활과 연결되는 주제<i class="caret"></i></span><kbd>↵</kbd></div>
-  <div class="st1-list">
-    <div class="st1-h">추천 탐구 주제 <b>5</b></div>
-    <div class="st1-row sel"><b>미분을 활용한 포장재 부피 최적화 전략</b><span>공학 · 산업디자인 진로</span><em>교과 연계 높음</em></div>
-    <div class="st1-row"><b>스포츠 탄도 궤적과 최적 투사 각도</b><span>체육 · 물리 진로</span></div>
-    <div class="st1-row"><b>한계비용으로 본 기업의 이윤 극대화</b><span>경영 · 경제 진로</span></div>
-    <div class="st1-row dim"><b>자율주행차 곡선 경로 예측과 미분</b><span>모빌리티 · AI 진로</span></div>
-  </div>
-  <svg class="st1-cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#fff" stroke="#0b1a4d" stroke-width="1.4" stroke-linejoin="round"/></svg>
-  <div class="st1-why"><small>추천 이유</small><b>왜 이 주제일까요?</b><ol><li>미분 단원의 <u>최댓값·최솟값</u>과 바로 연결</li><li>택배 상자로 직접 측정·검증 가능</li><li>세특에 '문제 해결' 역량으로 기록</li></ol></div>
-</div>
-        </article><article class="cs-card">
-          <div class="cs-txt"><span class="cs-n">02</span><span class="cs-tag">보고서 첨삭</span><h3>평가 기준으로 읽고<br />고칠 문장을 짚어 줍니다</h3><p>작성한 탐구보고서를 평가 기준에 따라 분석하고, 문장별 피드백과 구체적인 개선 방향을 제공합니다.</p><ul><li>동기·과정·성취·발전 구조 분석</li><li>논리 공백과 보완 참고자료 제안</li><li>원문에 바로 적용할 수 있는 수정 예시</li></ul><a class="cs-go" href="https://tamq.co.kr/sespec">보고서 첨삭 받기</a></div>
-          <div class="st st-2" aria-label="보고서 첨삭 예시 화면">
-  <div class="st2-sheet">
-    <div class="st2-meta"><span>탐구보고서</span><span>2학년 · 미적분Ⅰ</span></div>
-    <h4>미분을 활용한 포장재 부피 최적화</h4>
-    <p><span class="st2-lb">Ⅰ. 동기</span>택배 상자를 정리하다가, 같은 재료로 더 많은 물건을 담을 수는 없을지 궁금해졌다.</p>
-    <p><span class="st2-lb">Ⅱ. 과정</span>겉넓이를 고정한 직육면체의 부피를 함수로 놓고, <span class="st2-circ">도함수가 0<svg viewBox="0 0 120 40" preserveAspectRatio="none"><path d="M8 22C6 8 40 2 70 4s48 8 44 20-40 14-72 12S10 34 8 22z"/></svg></span>이 되는 지점에서 부피가 최대임을 찾았다.</p>
-    <p><span class="st2-wave">정육면체에 가까울수록 효율이 높았다.<svg viewBox="0 0 200 8" preserveAspectRatio="none"><path d="M0 5q5-4 10 0t10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0 10 0"/></svg></span></p>
-    <span class="st2-pen p1">최댓값인 근거 한 줄!<br />(증감표 or 이계도함수)</span>
-    <span class="st2-pen p2">운송 조건은? → 발전 단계로</span>
-    <svg class="st2-arrow" viewBox="0 0 60 40"><path d="M56 6C40 4 18 10 8 30M8 30l2-10M8 30l9-4"/></svg>
-  </div>
-  <div class="st2-struct"><small>구조 분석</small><div class="seg"><i class="ok"></i><i class="half"></i><i class="ok"></i><i class="half"></i></div><div class="lab"><span>동기</span><span>과정</span><span>성취</span><span>발전</span></div></div>
-</div>
-        </article><article class="cs-card">
-          <div class="cs-txt"><span class="cs-n">03</span><span class="cs-tag">세특 점수 평가</span><h3>지금 내 세특이<br />어디쯤인지 숫자로</h3><p>생활기록부 세특을 항목별로 진단해 점수와 강점, 보완해야 할 내용을 한눈에 확인합니다.</p><ul><li>학업·진로·공동체 역량별 정밀 진단</li><li>목표 대학군 참고 점수 비교</li><li>강점과 수정 방향을 담은 상세 리포트</li></ul><a class="cs-go" href="https://tamq.co.kr/score">세특 평가하기</a></div>
-          <div class="st st-3" aria-label="세특 점수 평가 예시 화면">
-  <div class="st3-gauge">
-    <svg viewBox="0 0 220 220"><defs><linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3a63d6"/><stop offset="1" stop-color="#1b4298"/></linearGradient></defs>
-      <circle cx="110" cy="110" r="88" fill="none" stroke="#dfe6f6" stroke-width="14" stroke-dasharray="414.7 553" stroke-linecap="round" transform="rotate(135 110 110)"/>
-      <circle cx="110" cy="110" r="88" fill="none" stroke="url(#g3)" stroke-width="14" stroke-dasharray="383 553" stroke-linecap="round" transform="rotate(135 110 110)"/>
-      <g stroke="#b9c6e6" stroke-width="1.5"><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-135.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-121.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-108.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-94.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-81.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-67.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-54.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-40.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-27.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(-13.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(0.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(13.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(27.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(40.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(54.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(67.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(81.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(94.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(108.0 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(121.5 110 110)"/><line x1="110" y1="8" x2="110" y2="14" transform="rotate(135.0 110 110)"/></g>
-      <g transform="rotate(97 110 110)"><line x1="110" y1="4" x2="110" y2="34" stroke="#f7a007" stroke-width="3" stroke-linecap="round"/></g>
-    </svg>
-    <div class="st3-num"><small>세특 종합 점수</small><b>92.4</b><span>매우 우수</span></div>
-    <span class="st3-ref">목표 대학군 참고 <b>86</b></span>
-  </div>
-  <div class="st3-radar">
-    <svg viewBox="0 0 200 190"><g fill="none" stroke="#d3dcef"><polygon points="100,20 176,152 24,152"/><polygon points="100,60 141,132 59,132"/><line x1="100" y1="20" x2="100" y2="108"/><line x1="176" y1="152" x2="100" y2="108"/><line x1="24" y1="152" x2="100" y2="108"/></g>
-      <polygon points="100,108 100,108 100,108" fill="none"/>
-      <polygon points="100,28 168,147 42,141" fill="rgba(27,66,152,.18)" stroke="#1b4298" stroke-width="2" stroke-linejoin="round"/>
-      <polygon points="100,38 162,143 36,147" fill="none" stroke="#f7a007" stroke-width="1.6" stroke-dasharray="4 4"/>
-      <g fill="#1b4298"><circle cx="100" cy="28" r="4"/><circle cx="168" cy="147" r="4"/><circle cx="42" cy="141" r="4"/></g>
-      <text x="100" y="12" text-anchor="middle">학업 9.4</text><text x="190" y="172" text-anchor="end">진로 8.9</text><text x="10" y="172">공동체 7.6</text>
-    </svg>
-    <div class="st3-leg"><span><i></i>내 세특</span><span><i class="ref"></i>목표 대학군</span></div>
-  </div>
-  <div class="st3-tip"><b>보완하면 좋아요</b>협업 과정에서 맡은 역할을 구체적으로 남겨 보세요.</div>
-</div>
-        </article><article class="cs-card">
-          <div class="cs-txt"><span class="cs-n">04</span><span class="cs-tag">진로 로드맵</span><h3>희망 진로에서 거꾸로<br />과목과 탐구를 설계</h3><p>학생의 핵심 가치와 희망 진로를 바탕으로 교과 선택, 탐구 활동, 학업 전략을 연결해 설계합니다.</p><ul><li>희망 진로와 연결되는 과목 설계</li><li>학년별 세특·탐구 활동 전략</li><li>과목별 맞춤 주제와 전략 코멘트</li></ul><a class="cs-go" href="https://tamq.co.kr/roadmap">로드맵 그리기</a></div>
-          <div class="st st-4" aria-label="진로 로드맵 예시 화면">
-  <svg class="st4-map" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet">
-    <g class="st4-cols"><text x="70" y="40">1학년</text><text x="250" y="40">2학년</text><text x="430" y="40">3학년</text><line x1="160" y1="56" x2="160" y2="400"/><line x1="340" y1="56" x2="340" y2="400"/></g>
-    <path class="ln a" d="M40 120H230C262 120 262 120 290 120H420C470 120 480 200 540 210"/>
-    <path class="ln b" d="M40 220H200C240 220 250 180 290 180H420C460 180 480 205 540 210"/>
-    <path class="ln c" d="M40 320H230C270 320 280 300 330 300H430C480 300 490 230 540 214"/>
-    <g class="stn a"><circle cx="70" cy="120" r="9"/><circle cx="250" cy="120" r="9"/><circle cx="430" cy="120" r="9"/></g>
-    <g class="stn b"><circle cx="70" cy="220" r="9"/><circle cx="250" cy="180" r="9"/><circle cx="430" cy="180" r="9"/></g>
-    <g class="stn c"><circle cx="70" cy="320" r="9"/><circle cx="250" cy="300" r="9"/><circle cx="430" cy="300" r="9"/></g>
-    <g class="lbl"><text x="70" y="148">공통수학</text><text x="250" y="148" class="hl">미적분Ⅰ</text><text x="430" y="100">확률과 통계</text>
-      <text x="70" y="248">정보</text><text x="250" y="164" class="hl">인공지능 기초</text><text x="430" y="164" class="hl">데이터 과학</text>
-      <text x="70" y="348" class="t">알고리즘 기초 탐구</text><text x="250" y="284" class="t">손실함수와 미분</text><text x="430" y="284" class="t">추천 알고리즘 분석</text></g>
-  </svg>
-  <div class="st4-dest"><small>희망 진로</small><b>컴퓨터공학과</b></div>
-  <div class="st4-leg"><span class="a">수학</span><span class="b">정보</span><span class="c">탐구 활동</span></div>
-</div>
-        </article></div>
-      <p class="cs-note">화면은 이해를 돕기 위한 예시입니다.</p>
+      <div class="tf-body">
+        <div class="tf-side"><span class="tf-pill" id="tfPill">01</span></div>
+        <div class="tf-list"><article class="tf-item" data-k="0"><h3>막막한 관심사를 주제로 바꿔주는 '탐구 프로젝트'</h3><p>교과와 단원을 고르면 진로와 이어지는 탐구 주제를 추천해요.<br />참고자료 탐색부터 PDF 완성까지 한 흐름으로 이어갈 수 있어요.</p><div class="tf-panel"><div class="tm tm1"><small>미적분Ⅰ · 미분</small><b class="tm-h">추천 탐구 주제 5개</b>
+<div class="tm-row on"><span>미분을 활용한 포장재 부피 최적화</span><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5l2.5 2.5 5.5-6"/></svg></i></div>
+<div class="tm-row"><span>스포츠 탄도 궤적과 최적 투사 각도</span></div>
+<div class="tm-row"><span>한계비용으로 본 이윤 극대화</span></div></div></div></article><article class="tf-item" data-k="1"><h3>고칠 문장을 짚어주는 '보고서 첨삭'</h3><p>동기·과정·성취·발전 구조로 보고서를 분석해요.<br />어디가 비었는지, 어떻게 고치면 되는지 원문 위에서 바로 알려드려요.</p><div class="tf-panel"><div class="tm tm2"><small>탐구보고서 · 과정</small>
+<p>겉넓이를 고정한 직육면체의 부피를 함수로 놓고, <u>도함수가 0이 되는 지점에서 부피가 최대임을 찾았다.</u></p>
+<div class="tm-tip"><b>이렇게 고쳐 보세요</b>최댓값인 근거(증감표)를 한 줄 더하면 논리가 완성돼요.</div></div></div></article><article class="tf-item" data-k="2"><h3>내 세특의 위치를 알려주는 '세특 점수 평가'</h3><p>학업·진로·공동체 역량별로 세특을 진단해요.<br />목표 대학군 참고 점수와 비교하면 무엇을 보완할지 보여요.</p><div class="tf-panel"><div class="tm tm3"><small>세특 종합 점수</small><b class="tm-big">92.4점</b><span class="tm-sub">목표 대학군 참고보다 <em>6.4점</em> 높아요</span>
+<svg viewBox="0 0 220 70"><defs><linearGradient id="tg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3182f6" stop-opacity=".22"/><stop offset="1" stop-color="#3182f6" stop-opacity="0"/></linearGradient></defs><path d="M0 60 30 52 60 56 90 40 120 44 150 26 180 30 205 12V70H0z" fill="url(#tg3)"/><path d="M0 60 30 52 60 56 90 40 120 44 150 26 180 30 205 12" fill="none" stroke="#3182f6" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="205" cy="12" r="5" fill="#fff" stroke="#3182f6" stroke-width="2.4"/></svg></div>
+<div class="tm tm3b"><span class="tm-ic">공</span><div><b>공동체역량</b><small>7.6 · 보완하면 좋아요</small></div><em>+ 협업 역할</em></div></div></article><article class="tf-item" data-k="3"><h3>진로에서 거꾸로 설계하는 '진로 로드맵'</h3><p>희망 진로와 핵심 가치를 바탕으로 선택 과목과<br />학년별 탐구 활동을 하나의 길로 이어드려요.</p><div class="tf-panel"><div class="tm4"><div class="tm-t"><small>1학년</small><b>공통수학</b></div><span class="tm-ar">›</span><div class="tm-t on"><small>2학년</small><b>미적분Ⅰ</b></div><span class="tm-ar">›</span><div class="tm-t"><small>3학년</small><b>데이터 과학</b></div></div>
+<div class="tm tm4b"><small>희망 진로</small><b>컴퓨터공학과</b></div></div></article></div>
+      </div>
     </div>
   </section>
 
@@ -1348,7 +1358,8 @@ ul,ol{list-style:none}
         <h3>지금 많이 찾는 <em>탐구 주제</em></h3>
         <div class="arrows"><button id="rowPrev" aria-label="이전"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></button><button id="rowNext" aria-label="다음"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button></div>
       </div>
-      <div class="row shelf reveal" id="topicRow"></div>
+      <div class="row sqrow reveal" id="topicRow"></div>
+      <div class="sq-pager"><span id="sqNum"></span></div>
     </div>
   </section>
 
@@ -1562,10 +1573,14 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
       default: return `<div class="book" style="--c:${b.c}"><div class="bk-head"><small>2026 TAM-Q</small><b>탐큐특강</b><span>${b.sub}</span></div><div class="bk-art${b.art ? ' art' + b.art : ''}">${img}</div><div class="bk-foot">TAM-Q</div></div>`;
     }
   };
+  const SQ = {"opt": {"d": "택배 상자처럼 겉넓이가 정해진 직육면체의 부피를 함수로 놓고, 미분으로 최댓값을 찾습니다.", "t": ["수학", "미적분", "공학", "산업디자인"]}, "net": {"d": "생성형 AI 사용이 학습 효율과 이해도에 미치는 영향을 설문과 실험으로 분석합니다.", "t": ["정보", "인공지능", "교육"]}, "mol": {"d": "농도, 온도, 촉매 등 조건 변화에 따른 화학 반응 속도를 실험으로 비교합니다.", "t": ["과학", "화학", "실험설계"]}, "arc": {"d": "공의 포물선 궤적을 함수로 나타내고, 미분으로 가장 멀리 가는 투사 각도를 찾습니다.", "t": ["수학", "미적분", "체육"]}, "bars": {"d": "한계비용과 한계수익이 만나는 지점에서 기업의 이윤이 가장 커지는 이유를 분석합니다.", "t": ["사회", "경제", "경영"]}, "leaf": {"d": "카페인 섭취량에 따라 집중 시간과 반응 속도가 어떻게 달라지는지 측정합니다.", "t": ["과학", "생명과학", "보건"]}, "path": {"d": "곡선 도로에서 자율주행차의 경로를 미분으로 예측하고 안전 속도를 계산합니다.", "t": ["수학", "미적분", "모빌리티"]}};
   $('#topicRow').innerHTML = books.map((b) => `
-    <a class="tcard book-card" data-subj="${b.subj}" href="${b.href}">
-      <div class="ph"><span class="tab"><i></i>${b.tab}</span>${cover(b)}</div>
-      <p>${b.title}</p><span class="meta">${b.meta}</span>
+    <a class="sq" href="${b.href}" style="--rc:${b.rc}">
+      <div class="sq-top"><span class="sq-dot"></span><b>${b.tab}</b><em>2026학년도</em></div>
+      <h4>${b.title}</h4>
+      <p>${SQ[b.art].d}</p>
+      <div class="sq-art">${rrArt(b.art, b.rc)}</div>
+      <div class="sq-foot"><span class="sq-tags">${SQ[b.art].t.map((x) => `<i>${x}</i>`).join('')}</span><span class="sq-go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
     </a>`).join('');
 })();
 
@@ -1590,14 +1605,21 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   $('#wrow1').innerHTML = fill(a); $('#wrow2').innerHTML = fill(b);
 })();
 
-// Topic row arrows
+// Topic row: active card + counter
 (() => {
-  const row = $('#topicRow');
-  const step = () => row.querySelector('.tcard').getBoundingClientRect().width + 18;
-  $('#rowPrev').onclick = () => row.scrollBy({ left: -step() });
-  $('#rowNext').onclick = () => row.scrollBy({ left: step() });
+  const row = $('#topicRow'), cards = [...row.children], num = $('#sqNum');
+  let k = 0;
+  const go = (n, scroll = true) => {
+    k = Math.max(0, Math.min(cards.length - 1, n));
+    cards.forEach((c, i) => c.classList.toggle('on', i === k));
+    num.innerHTML = `<b>${k + 1}</b> / ${cards.length}`;
+    $('#rowPrev').disabled = k === 0; $('#rowNext').disabled = k === cards.length - 1;
+    if (scroll) row.scrollTo({ left: cards[k].offsetLeft - row.offsetLeft - (k ? 40 : 0), behavior: 'smooth' });
+  };
+  $('#rowPrev').onclick = () => go(k - 1); $('#rowNext').onclick = () => go(k + 1);
+  cards.forEach((c, i) => c.addEventListener('mouseenter', () => go(i, false)));
+  go(0, false);
 })();
-
 // Coverflow with counter / progress / pause
 (() => {
   const steps = [
@@ -1637,6 +1659,13 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
   };
   addEventListener('resize', () => go(i));
   go(0);
+})();
+
+// Toss-style feature number pill
+(() => {
+  const pill = $('#tfPill'); if (!pill) return;
+  const o = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) pill.textContent = String(+e.target.dataset.k + 1).padStart(2, '0'); }), { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('.tf-item').forEach((x) => o.observe(x));
 })();
 
 // FAQ
