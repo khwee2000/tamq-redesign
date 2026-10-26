@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TAM-Q | 생기부 탐구보고서 AI 도우미</title>
 <meta name="description" content="고등학생 생활기록부 탐구보고서를 주제 선정부터 참고자료 탐색, 보고서 작성, 세특 평가까지 AI가 단계별로 도와주는 서비스입니다." />
-<link rel="icon" type="image/png" href="assets/logo-mark-trim.png" />
+<link rel="icon" type="image/png" href="assets/logo-q.png" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <style>
 :root{
@@ -385,7 +385,7 @@ ul,ol{list-style:none}
 .hd{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#fff;transition:background-color .3s,box-shadow .3s}
 .hd.scrolled{background:rgba(27,66,152,.94)!important;backdrop-filter:saturate(1.4) blur(12px)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px)!important;box-shadow:0 6px 24px -8px rgba(11,31,92,.45)}
 .hd .logo{color:#fff}
-.hd .logo img{width:28px;height:28px;padding:5px;border-radius:8px;background:#fff;object-fit:contain}
+.hd .logo img{width:36px;height:36px;padding:4px;border-radius:50%;background:#fff;object-fit:contain;box-shadow:0 4px 10px -2px rgba(0,0,0,.25)}
 .hd .gnb{color:rgba(255,255,255,.8)}
 .hd .gnb a:hover{color:#fff}
 .hd .hd-right .login{background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
@@ -440,6 +440,12 @@ ul,ol{list-style:none}
 .cv-note .pin{position:absolute;right:16px;bottom:18px;width:112px;height:84px;padding:4px;background:#fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.35);transform:rotate(5deg)}
 .cv-note .pin::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--accent);transform:translateX(-50%);box-shadow:0 2px 3px rgba(0,0,0,.3)}
 @media (max-width:720px){.cv{height:264px}.sheet{padding-top:40px}.sheet img{height:72px}.cv-note .lines b{font-size:15px}}
+
+/* ---------- pill navbar ---------- */
+.hd{top:14px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(1200px,calc(100% - 32px));border-radius:999px;background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.18);backdrop-filter:saturate(1.4) blur(12px)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px)!important}
+.hd.scrolled{background:rgba(27,66,152,.92)!important;border-color:rgba(255,255,255,.12);box-shadow:0 12px 32px -10px rgba(11,31,92,.5)}
+.hd .wrap{height:58px;max-width:none;padding:0 10px 0 22px}
+@media (max-width:720px){.hd{top:10px!important;width:calc(100% - 20px)}.hd .wrap{height:52px;padding:0 8px 0 16px}}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
@@ -521,7 +527,7 @@ ul,ol{list-style:none}
 
 <header class="hd" id="hd">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-mark-trim.png" alt="" />Tam-Q</a>
+    <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-q.png" alt="" />Tam-Q</a>
     <nav class="gnb" aria-label="주요 메뉴">
       <a href="#features">서비스</a>
       <a href="#features">탐구 주제</a>
