@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TAM-Q | 생기부 탐구보고서 AI 도우미</title>
 <meta name="description" content="고등학생 생활기록부 탐구보고서를 주제 선정부터 참고자료 탐색, 보고서 작성, 세특 평가까지 AI가 단계별로 도와주는 서비스입니다." />
-<link rel="icon" type="image/png" href="assets/logo-q.png" />
+<link rel="icon" type="image/png" href="assets/logo-3d.png" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;700&display=swap" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <style>
@@ -99,7 +99,7 @@ ul,ol{list-style:none}
 
 /* ---------- quick menu (빨간펜) ---------- */
 .quick{padding:48px 0 0}
-.quick ul{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.quick ul{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
 .quick a{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-2)}
 .quick .qi{width:72px;height:72px;border-radius:20px;background:var(--bg-soft);display:grid;place-items:center;transition:transform .25s var(--ease),background-color .25s,box-shadow .25s}
 .quick .qi img{width:48px;height:48px;object-fit:contain}
@@ -1317,6 +1317,10 @@ ul,ol{list-style:none}
 .sx-type.done::after{display:none}
 .sx-ins{min-height:56px}
 
+/* 3D brand logo: keep upright, readable on navy */
+.hero .gs .q3d{transform:translate(-50%,-60%)!important;width:min(20vw,190px)!important;animation:none!important}
+.hd:not(.scrolled) .logo img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 8px rgba(255,255,255,.45))!important}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -1397,7 +1401,7 @@ ul,ol{list-style:none}
 
 <header class="hd" id="hd">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-q.png" alt="" />Tam-Q</a>
+    <a href="#" class="logo" aria-label="TAM-Q 홈"><img src="assets/logo-3d.png" alt="" />Tam-Q</a>
     <nav class="gnb" aria-label="주요 메뉴">
       <a href="#service">서비스</a>
       <a href="#features">탐구 주제</a>
@@ -1418,7 +1422,7 @@ ul,ol{list-style:none}
       <div class="gs">
         <div class="stack reveal"><div class="hbub" aria-hidden="true"><div class="hb2 hb2-s" style="left:calc(50% - 560px);top:6%;--i:0"><small>고2 학생</small>수행평가 주제 뭐 하지…</div><div class="hb2 hb2-p" style="left:calc(50% + 330px);top:2%;--i:1"><small>학부모</small>우리 애 세특, 이대로 괜찮을까요?</div><div class="hb2 hb2-s" style="left:calc(50% - 620px);top:44%;--i:2"><small>고1 학생</small>자료는 어디서 찾아야 돼?</div><div class="hb2 hb2-p" style="left:calc(50% + 360px);top:40%;--i:3"><small>학부모</small>진로랑 과목이 이어져야 한다는데…</div><div class="hb2 hb2-s" style="left:calc(50% - 560px);top:80%;--i:4"><small>고3 학생</small>보고서 다 썼는데 이게 맞나?</div><div class="hb2 hb2-s" style="left:calc(50% + 340px);top:78%;--i:5"><small>고2 학생</small>세특에 뭐라고 남겨야 하지?</div></div>
           <h1 class="big">Start<br />Tam-Q</h1>
-          <img class="q3d" src="assets/hero-q.webp" alt="" />
+          <img class="q3d" src="assets/logo-3d.webp" alt="" />
           <span class="tag">탐구가 궁금할 땐!</span>
         </div>
         <p class="reveal hero-lead" style="--d:.08s"><b>수행평가의 질문을, 입시에 남을 기록으로.</b><br />한 번의 관심이 탐구보고서가 되고, 그 과정이 세특과 입시의 근거로 이어지도록 TAM-Q가 모든 단계를 연결합니다.</p>
@@ -1448,7 +1452,6 @@ ul,ol{list-style:none}
         <li class="reveal" style="--d:.06s"><a href="https://tamq.co.kr/score"><span class="qi"><img src="assets/ic-score.webp" alt="" /></span>세특 평가</a></li>
         <li class="reveal" style="--d:.09s"><a href="https://tamq.co.kr/roadmap"><span class="qi"><img src="assets/ic-roadmap.webp" alt="" /></span>진로 로드맵</a></li>
         <li class="reveal" style="--d:.12s"><a href="#pricing"><span class="qi"><img src="assets/ic-pricing.webp" alt="" /></span>요금제</a></li>
-        <li class="reveal" style="--d:.15s"><a href="https://vast-soy-572.notion.site/Tam-Q-2cb17b72d7378076abfac81607f69b1b" target="_blank" rel="noopener"><span class="qi"><img src="assets/ic-guide.webp" alt="" /></span>사용법</a></li>
         <li class="reveal" style="--d:.18s"><a href="https://forms.gle/WBwdz5Db6WUmUx5x5" target="_blank" rel="noopener"><span class="qi"><img src="assets/ic-contact.webp" alt="" /></span>문의·건의</a></li>
         <li class="reveal" style="--d:.21s"><a href="https://open.kakao.com/o/sPk3d4gi" target="_blank" rel="noopener"><span class="qi"><img src="assets/ic-bug.webp" alt="" /></span>오류 신고</a></li>
       </ul>
@@ -1468,7 +1471,7 @@ ul,ol{list-style:none}
         <div class="tf-list"><article class="tf-item" data-k="0"><h3>막막한 관심사를 주제로 바꿔주는 '탐구 프로젝트'</h3><p>교과와 단원을 고르면 진로와 이어지는 탐구 주제를 추천해요.<br />참고자료 탐색부터 PDF 완성까지 한 흐름으로 이어갈 수 있어요.</p><div class="tf-panel"><div class="sx sx1">
   <div class="sx-ask"><small>고2 학생</small><span class="sx-type" data-t="축구 좋아하는데, 미적분 수행평가 뭘 쓰지?"></span></div>
   <div class="sx-dots"><i></i><i></i><i></i></div>
-  <div class="tm sx-ans"><small><img src="assets/logo-q.png" alt="" />탐큐 추천 · 미적분Ⅰ 미분</small><b>스포츠 경기의 탄도 궤적 분석: 최적 투사 각도 탐구</b><div class="sx-tags"><span class="hl">교과 연계 높음</span><span>체육 · 물리 진로</span></div><div class="sx-btn">이 주제로 시작하기 →</div></div>
+  <div class="tm sx-ans"><small><img src="assets/logo-3d.png" alt="" />탐큐 추천 · 미적분Ⅰ 미분</small><b>스포츠 경기의 탄도 궤적 분석: 최적 투사 각도 탐구</b><div class="sx-tags"><span class="hl">교과 연계 높음</span><span>체육 · 물리 진로</span></div><div class="sx-btn">이 주제로 시작하기 →</div></div>
 </div></div></article><article class="tf-item" data-k="1"><h3>고칠 문장을 짚어주는 '보고서 첨삭'</h3><p>동기·과정·성취·발전 구조로 보고서를 분석해요.<br />어디가 비었는지, 어떻게 고치면 되는지 원문 위에서 바로 알려드려요.</p><div class="tf-panel"><div class="sx sx2"><div class="tm">
   <div class="sx-st"><span>과정</span><b class="sx-flip"><i class="a">보완 필요</i><i class="b">충분</i></b></div>
   <p>겉넓이를 고정한 직육면체의 부피를 함수로 놓고, 도함수가 0이 되는 지점에서 부피가 최대임을 찾았다.</p>
@@ -1557,9 +1560,9 @@ ul,ol{list-style:none}
   </section>
 
   <!-- VOICES (Handly testimonial row) : 후기 문구는 레이아웃용 예시입니다. 실제 후기로 교체하세요. -->
-  <section class="voices" id="reviews">
+  <section class="voices" hidden data-note="실제 후기를 받으면 hidden 속성을 지워 다시 노출" id="reviews">
     <div class="wrap s-head">
-      <img class="icon3d reveal" src="assets/hero-q.webp" alt="" />
+      <img class="icon3d reveal" src="assets/logo-3d.webp" alt="" />
       <h2 class="reveal">고1부터 고3, 학부모까지</h2>
       <p class="reveal">탐구가 막막했던 순간, TAM-Q를 먼저 써 본 사람들의 이야기</p>
     </div>
@@ -1633,7 +1636,7 @@ ul,ol{list-style:none}
   <!-- FINAL CTA -->
   <section class="fin">
     <div class="wrap">
-      <img class="fin-q reveal" src="assets/hero-q.webp" alt="" />
+      <img class="fin-q reveal" src="assets/logo-3d.webp" alt="" />
       <h2 class="reveal">질문 하나가<br />기록의 시작이 됩니다.</h2>
       <p class="reveal">수행평가부터 세특까지, 첫 탐구를 TAM-Q와 시작해 보세요.</p>
       <a class="fin-btn reveal" href="https://tamq.co.kr/home">무료로 탐구 시작하기<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
@@ -1650,7 +1653,6 @@ ul,ol{list-style:none}
     <div class="ft-bottom">
       <div class="ft-btns">
         <a href="#">개인정보처리방침</a>
-        <a href="https://vast-soy-572.notion.site/Tam-Q-2cb17b72d7378076abfac81607f69b1b" target="_blank" rel="noopener">사용법</a>
         <a class="round kakao" href="https://open.kakao.com/o/sPk3d4gi" target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.2c-4.2 0-7.5 2.6-7.5 5.9 0 2.1 1.4 3.9 3.5 5l-.7 2.6c-.1.3.2.5.5.3l3.1-2c.4 0 .7.1 1.1.1 4.2 0 7.5-2.6 7.5-5.9S14.2 3.2 10 3.2z"/></svg></a>
         <a class="round" href="https://www.instagram.com/tamq.high" target="_blank" rel="noopener" aria-label="인스타그램"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="14" height="14" rx="4"/><circle cx="10" cy="10" r="3.2"/><circle cx="14.2" cy="5.8" r=".6" fill="currentColor"/></svg></a>
         <a class="round" href="https://blog.naver.com/soliontamq" target="_blank" rel="noopener" aria-label="네이버 블로그"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4h3.2l3.6 5.6V4H15v12h-3.2L8.2 10.4V16H5z"/></svg></a>
@@ -1718,7 +1720,7 @@ toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
     const img = `<img src="assets/${b.img}.webp" alt="" loading="lazy">`;
     switch (b.kind) {
       case 'photo': return `<div class="img"><img src="assets/${b.img}.webp" alt="" loading="lazy"></div>`;
-      case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span class="rr-doc">탐구보고서</span><span>2026학년도</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><dl class="rr-tbl"><dt>과목</dt><dd>${b.sj}</dd><dt>핵심 개념</dt><dd>${b.kw}</dd><dt>연계 진로</dt><dd>${b.car}</dd></dl><div class="rr-foot"><span class="rr-ok">2022 개정 교육과정 연계</span><img src="assets/logo-q.png" alt=""></div></div>`;
+      case 'rr': return `<div class="rr" style="--rc:${b.rc}"><div class="rr-top"><span class="rr-doc">탐구보고서</span><span>2026학년도</span></div><h4>${b.short}</h4><i class="rr-bar"></i><div class="rr-art">${rrArt(b.art, b.rc)}</div><dl class="rr-tbl"><dt>과목</dt><dd>${b.sj}</dd><dt>핵심 개념</dt><dd>${b.kw}</dd><dt>연계 진로</dt><dd>${b.car}</dd></dl><div class="rr-foot"><span class="rr-ok">2022 개정 교육과정 연계</span><img src="assets/logo-3d.png" alt=""></div></div>`;
       case 'polaroid': return `<div class="cv cv-polaroid"><div class="pol"><span class="tape"></span>${img}<em>#${b.tab}</em></div></div>`;
       case 'photo': return `<div class="cv cv-photo">${img}<svg class="arc" viewBox="0 0 228 300" preserveAspectRatio="none"><path d="M10 250C70 60 160 50 220 210" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 6"/><circle cx="118" cy="98" r="4" fill="#f7a007"/></svg><div class="cap"><small>인기 탐구 주제</small><b>${b.sub}</b></div></div>`;
       case 'report': return `<div class="cv cv-report"><div class="sheet"><small>탐구보고서</small><div class="ttl"><i></i><i></i></div>${img}<dl><dt>과목</dt><dd>${b.tab}</dd><dt>주제</dt><dd>실험 설계</dd></dl></div></div>`;
